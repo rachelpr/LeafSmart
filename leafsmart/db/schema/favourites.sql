@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS favourites CASCADE;
+CREATE TABLE favourites (
+  id BIGSERIAL  PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  geoname_id INTEGER NOT NULL,
+  display_name VARCHAR 255, DEFAULT TO city_name,
+  city_name VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT NOW()
+);
