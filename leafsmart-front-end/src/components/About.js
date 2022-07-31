@@ -1,10 +1,19 @@
 import React from 'react'
+import Nav from "./Nav";
 
 const About = () => {
   return (
-    <div>
-      <h1>About</h1>
-    </div>
+    <main className="layout">
+      <section className="nav-bar">
+        <Nav />
+      </section>
+      <hr className="sidebar__separator sidebar--centered" />
+      <section className="widgets">
+        <div>
+          <h1>About</h1>
+        </div>
+      </section>
+    </main>
   )
 }
 
