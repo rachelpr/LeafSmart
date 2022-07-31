@@ -1,21 +1,22 @@
-import React from 'react'
-import "./Nav.scss"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Nav.scss";
 
 const Nav = () => {
   return (
     <>
-      <section className='head-links'>
-      <h1> LeafSmart</h1>
-      <p>LogIn</p>
-      <p>LogOut</p>
-      <p>favourite</p>
+      <section className="head-links">
+        <Link to='/' style={{ pointerEvents: 'none' }}><h1>LeafSmart</h1></Link>
+        <Link to="/LogIn" style={{ textDecoration: 'none' }}>Log-In</Link>
+        <p>LogOut</p>
+        <p>favourite</p>
       </section>
-    <section className='foot-links'>
-      <p>about</p>
-      <p>contact</p>
-    </section>
+      <section className="foot-links">
+        <Link to="/About" style={{ textDecoration: 'none' }}>About</Link>
+        <Link to="/Contact" style={{ textDecoration: 'none' }}>Contact</Link>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
