@@ -95,7 +95,7 @@ app.post("/favourites/new", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-    
+
 });
 
 // DELETE: Delete user by userId from the database
