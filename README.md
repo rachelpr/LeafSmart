@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Create React App in leafsmart-front-end
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# leafsmart-back-end notes
+
+## available scripts
+### `npm start`
+This script runs the server with [nodemon](https://www.npmjs.com/package//nodemon)
+
+### `npm run db:reset`
+This script runs the contents of /db/schema and /db/seeds against the pg database -- either local, or if the server's been deployed to a URL, to that URL.
