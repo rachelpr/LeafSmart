@@ -95,7 +95,7 @@ app.post("/favourites/new", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-    
+
 });
 
 // DELETE: Delete user by userId from the database
@@ -115,7 +115,7 @@ app.delete("/delete-user", (req, res) => {
     });
 });
 
-const port = process.env.PORT || 3001;
+const port = process.env.WEB_PORT || 3001;
 
 app.listen(port, () =>
   console.log(`Server running on port ${port}, http://localhost:${port}`)
