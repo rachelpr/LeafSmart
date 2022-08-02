@@ -1,9 +1,9 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 const Nav = () => {
-  const [userStatus, setUserStatus] = useState(false);
+  const [userStatus] = useState(false);
 
   return (
     <>
