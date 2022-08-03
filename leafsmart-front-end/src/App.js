@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import "./App.scss";
+import CityFacts from "./components/CityFacts";
+import QoLData from "./components/QoLData";
 
 const App = () => {
   /* const [users, setUsers] = useState([]);
@@ -40,6 +42,8 @@ const App = () => {
       <section className="widgets">
         <div>
           <h1>Widgets</h1>
+          <CityFacts />
+          <QoLData />
         </div>
       </section>
     </main>
