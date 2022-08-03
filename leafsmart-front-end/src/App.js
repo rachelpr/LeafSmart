@@ -1,5 +1,6 @@
 // import React, { Fragment, useState, useEffect } from "react";
 import Nav from "./components/Nav";
+import Events from "./components/Events"
 import "./App.scss";
 import './styles/main.css';
 
@@ -41,6 +42,7 @@ const App = () => {
       <section className="widgets">
         <div>
           <h1 className="text-3xl font-bold underline text-purple-600 hover:bg-blue-50">Widgets</h1>
+          <Events />
         </div>
       </section>
     </main>
