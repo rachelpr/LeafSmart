@@ -87,7 +87,7 @@ import { React } from "react";
 // };
 
 //a component for each life quality score
-export default function QoLDataItem(props) {
+export default function QoLDataCard(props) {
   const formatScore = () => {
     return Math.ceil(props.score);
   };

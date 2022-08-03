@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import QoLDataItem from "./QoLDataItem";
+import QoLDataCard from "./QoLDataCard";
 import { filterQoL } from "../helpers/selectors";
 
 // const cityScore = {
@@ -108,11 +108,11 @@ const QoLData = () => {
       })
   }, []);
 
-  console.log(slugScore)
+  //console.log(slugScore)
   //get slugScores for a city
   const categoriesArr = filterQoL(slugScore).map((slugScore) => {
     return (
-      <QoLDataItem
+      <QoLDataCard
         key={slugScore.color}
         name={slugScore.name}
         score={slugScore.score_out_of_10}
