@@ -1,6 +1,7 @@
 // import React, { Fragment, useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import "./App.scss";
+import './styles/main.css';
 
 const App = () => {
   /* const [users, setUsers] = useState([]);
@@ -39,7 +40,9 @@ const App = () => {
       <hr className="sidebar__separator sidebar--centered" />
       <section className="widgets">
         <div>
-          <h1>Widgets</h1>
+          <h1 className="text-3xl font-bold text-green-600">Widgets</h1>
+          Test
+
         </div>
       </section>
     </main>
