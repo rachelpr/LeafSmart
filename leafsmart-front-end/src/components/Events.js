@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import EventListItem from './EventsList';
+import EventCard from './EventCard';
 
 const today = new Date();
 const year = today.getFullYear()
@@ -32,7 +32,7 @@ const Events = () => {
   //mapping the data from the events array to showcase via the events list item breakdown.
   const eventsArr = events.map((events) => {
     return (
-      <EventListItem
+      <EventCard
         key={events.id}
         name={events.name}
         date={events.dates.start.localDate}
