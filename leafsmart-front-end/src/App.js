@@ -40,9 +40,7 @@ const App = () => {
       <hr className="sidebar__separator sidebar--centered" />
       <section className="widgets">
         <div>
-          <h1 className="text-3xl font-bold text-green-600">Widgets</h1>
-          Test
-
+          <h1 className="text-3xl font-bold underline text-purple-600 hover:bg-blue-50">Widgets</h1>
         </div>
       </section>
     </main>
