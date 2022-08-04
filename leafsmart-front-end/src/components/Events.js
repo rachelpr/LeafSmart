@@ -8,8 +8,6 @@ const day = ("0" + today.getDate()).slice(-2);
 const month = ("0" + (today.getMonth()+1)).slice(-2)
 const date = (year+"-"+month+"-"+day+"T19:00:00Z");
 
-console.log(date);
-
 const api = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=6gMe63zUGZXgI1NElCvwwZZfzG8Soesu`;
 
 const Events = () => {
@@ -26,8 +24,6 @@ const Events = () => {
       console.log(err);
     });
   }, []);
-
-  console.log(events)
 
   //mapping the data from the events array to showcase via the events list item breakdown.
   const eventsArr = events.map((events) => {
