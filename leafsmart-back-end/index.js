@@ -12,11 +12,14 @@ const db = knex({
     database: process.env.DATABASE,
   },
 });
+const loginRoute = require("./routes/login_route");
 
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use("/login", loginRoute(db));
 
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
