@@ -4,6 +4,7 @@ import Events from "./components/Events"
 import "./App.scss";
 import CityFacts from "./components/CityFacts";
 import QoLData from "./components/QoLData";
+import Search from "./components/Search";
 import './styles/main.css';
 
 const App = () => {
@@ -35,6 +36,13 @@ const App = () => {
     getAPI();
   }, []);
  */
+  const handleOnSearchChange = (searchData) => {
+    //TEMPORARY
+    // Sample response:
+    // searchData = {value: '51.0475 -114.0625', label: 'Calgary, AB'}
+    console.log(searchData);
+  }
+
   return (
     <main className="layout">
       <section className="nav-bar">
@@ -44,6 +52,7 @@ const App = () => {
       <section className="widgets">
         <div>
           <h1 className="text-3xl font-bold underline text-purple-600 hover:bg-blue-50">Widgets</h1>
+          <Search onSearchChange={handleOnSearchChange}/>
           <Events />
           <CityFacts />
           <QoLData />
