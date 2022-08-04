@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom'
 import axios from "axios";
 import Nav from "./Nav";
+import FavouritesCard from "./FavouritesCard";
+import Cookies from "universal-cookie";
+
+const cookie = new Cookies();
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
-  const users = useLocation();
-  const { user_id } = users.id;
+  const [logged, setLogged] = useState("")
+  const [cookies, setCookies] = useState("");
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:3001/favourites`)
+      .get(`/favourites`)
       .then((res) => {
-        const data = res.data[0];
+        const data = res.data;
         setFavourites(data);
       })
       .catch((err) => {
@@ -20,7 +23,18 @@ const Favourites = () => {
       });
   }, []);
 
-  console.log(users.id);
+  useEffect(() => {
+    setCookies(cookie.get("user_id"));
+    setLogged(cookie.get("user"));
+  }, []);
+
+  const favArr = favourites.map((fav) => {
+    return <FavouritesCard key={fav.id} name={fav.name} />;
+  });
+
+  console.log("Favourites: ", favourites);
+  console.log("cookies: ", cookies)
+  console.log("user: ", logged)
 
   return (
     <main className="layout">
@@ -31,6 +45,7 @@ const Favourites = () => {
       <section className="widgets">
         <div>
           <h1>Favourites</h1>
+          {cookies === logged ? <ul>{favArr}</ul> : <p>No Favourites Saved</p>}
         </div>
       </section>
     </main>
