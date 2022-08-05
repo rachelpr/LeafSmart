@@ -7,6 +7,11 @@ import QoLData from "./components/QoLData";
 import Search from "./components/Search";
 import './styles/main.css';
 
+const handleOnSearchChange = (searchData) => {
+  //response contains { label: "Toronto, ON", value: "43.670277777 -79.386666666" }
+    console.log(searchData);
+}
+
 const App = () => {
   return (
     <main className="layout">
@@ -16,10 +21,11 @@ const App = () => {
       <hr className="sidebar__separator sidebar--centered" />
       <section className="widgets">
         <div>
-          <h1>Widgets</h1>
-          <h1 className="text-3xl font-bold underline text-purple-600 hover:bg-blue-50">Widgets</h1>
+          <h1 className="text-3xl font-bold underline text-purple-600 hover:bg-amber-50">Widgets</h1>
           <Search onSearchChange={handleOnSearchChange}/>
+          <CityFacts />
           <Events />
+          <QoLData />
         </div>
       </section>
     </main>
