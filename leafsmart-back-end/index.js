@@ -13,6 +13,7 @@ const db = knex({
   },
 });
 const loginRoute = require("./routes/login_route");
+const favouriteRoute = require("./routes/favourite_route");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use("/login", loginRoute(db));
+app.use("/favourites", favouriteRoute(db));
 
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
