@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 import Cookies from "universal-cookie";
+import Favourites from "./Favourites";
 
 const cookie = new Cookies();
 
@@ -10,7 +11,6 @@ const Nav = () => {
   const [user, setUser] = useState([]);
   const [cookies, setCookies] = useState("");
   const [account, setAccount] = useState("");
-  const [logged, setLogged] = useState("")
 
   useEffect(() => {
     axios
@@ -42,7 +42,7 @@ const Nav = () => {
             <Link to="/">
               <h1>LeafSmart</h1>
             </Link>
-            <Link to="/Favourites">Tina Testerson</Link>
+            <Favourites />
             <button type="submit" onClick={() => {setAccount("")}}>Log Out</button>
             <p>Favourite</p>
           </section>
