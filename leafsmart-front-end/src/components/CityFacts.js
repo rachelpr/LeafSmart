@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import NumberFormat from "react-number-format";
 import axios from "axios"
 
 const apiUrl = process.env.REACT_APP_TELEPORT_CITYINFO_ENDPOINT;
@@ -25,7 +26,8 @@ const CityFacts = (props) => {
         { geonameId && (
           <>
             <h1>{city.name}</h1>
-            <p>Population: {city.population}</p>
+            <h2 className="inline">Population: </h2>
+            <NumberFormat value={city.population} thousandSeparator/>
           </>
         )}
       </section>
