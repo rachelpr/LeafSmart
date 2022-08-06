@@ -467,6 +467,9 @@ html {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.m-1{
+  margin: 0.25rem;
+}
 .mt-2{
   margin-top: 0.5rem;
 }
@@ -476,8 +479,26 @@ html {
 .inline{
   display: inline;
 }
+.flex{
+  display: flex;
+}
 .hidden{
   display: none;
+}
+.columns-1{
+  columns: 1;
+}
+.columns-2{
+  columns: 2;
+}
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-col{
+  flex-direction: column;
+}
+.justify-start{
+  justify-content: flex-start;
 }
 .rounded-lg{
   border-radius: 0.5rem;
@@ -519,10 +540,6 @@ html {
 }
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-@font-face {
-  font-family:
 }
 
 .nav-bar {
