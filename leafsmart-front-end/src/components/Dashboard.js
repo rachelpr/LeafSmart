@@ -7,7 +7,7 @@ import QoLData from "./QoLData";
 import Search from "./Search";
 
 import "../styles/main.css";
-import "../index.css"; // brings in our custom layout styles from previous iterations -- we can replace those classes with TW utility classes!
+import "../index.css"; // brings in our custom layout styles from previous iterations -- we can replace those classes with TW utility
 
 const Dashboard = () => {
   const [cityName, setCityName] = useState(null);
@@ -30,11 +30,12 @@ const Dashboard = () => {
         <Nav />
       </section>
       <section className="widgets">
+        <Search onSearchChange={handleOnSearchChange}/>
         <div>
-          <h1 className="text-3xl font-bold underline text-purple-600 hover:bg-amber-50">Widgets</h1>
-          <Search onSearchChange={handleOnSearchChange}/>
-          <CityFacts geonameId={geonameId} />
           <Events cityName={cityName} />
+        </div>
+        <div>
+          <CityFacts geonameId={geonameId} />
           <QoLData cityName={cityName} />
         </div>
       </section>
