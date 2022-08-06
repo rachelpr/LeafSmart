@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const knex = require("knex");
 require("dotenv").config();
+const index = require("./routes/index");
 
 const db = knex({
   client: "pg",
@@ -12,17 +13,20 @@ const db = knex({
     database: process.env.DATABASE,
   },
 });
-const loginRoute = require("./routes/login_route");
+
+const favRoute = require("./routes/favouriteRouter");
 
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use("/login", loginRoute(db));
+app.use("/favourites", favRoute(db));
 
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
+
+app.use("/login", index);
 
 // GET: Fetch all users from the database
 app.get("/", (req, res) => {
@@ -82,14 +86,15 @@ app.get("/favourites", (req, res) => {
 
 // POST: Create users and add them to the database
 app.post("/favourites/new", (req, res) => {
-  const { favourite_id, user_id, geoname_id, display_name, city_name } = req.body;
+  const { favourite_id, user_id, geoname_id, display_name, city_name } =
+    req.body;
   db("favourites")
     .insert({
       favourite_id: favourite_id,
       user_id: user_id,
       geoname_id: geoname_id,
       display_name: display_name,
-      city_name: city_name
+      city_name: city_name,
     })
     .then(() => {
       console.log("Favourite Added");
@@ -98,7 +103,6 @@ app.post("/favourites/new", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-
 });
 
 // DELETE: Delete user by userId from the database
@@ -123,3 +127,5 @@ const port = process.env.WEB_PORT || 3001;
 app.listen(port, () =>
   console.log(`Server running on port ${port}, http://localhost:${port}`)
 );
+
+module.exports = db;

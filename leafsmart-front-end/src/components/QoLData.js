@@ -13,12 +13,8 @@ const QoLData = (props) => {
 
   useEffect(() => {
     if (cityName) {
-      const api =
-        `${apiUrl}slug:${kebabCase(cityName)}/scores/`
-      console.log(api);
-
       //TODO: Handle showing a message when endpoint is not defined, returns no data
-      axios.get(`${api}`)
+      axios.get(`${apiUrl}slug:${kebabCase(cityName)}/scores/`)
       .then((res)=>{
         const data = res.data["categories"]
         setSlugScore(data);
@@ -27,8 +23,7 @@ const QoLData = (props) => {
         console.log(err)
       })
     }
-
-  }, [cityName]);
+  }, [cityName, apiUrl]);
 
   //get slugScores for a city
   const categoriesArr = filterQoL(slugScore).map((slugScore) => {
