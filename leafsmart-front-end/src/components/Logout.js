@@ -2,14 +2,13 @@ import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
 
 const Logout = () => {
+  const { logout, currentUser } = useAuth();
 
-  const { logout } = useAuth();
-
-  logout()
 
   return (
     <div>
-      <p>You have logged out!</p>
+      <div className='block'>{currentUser.first_name} {currentUser.last_name}</div>
+      <button className='block' onClick={() => logout()}>LogOut</button>
     </div>
   )
 }

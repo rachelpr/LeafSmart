@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContext";
 
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -11,7 +10,6 @@ import Dashboard from "./components/Dashboard";
 
 const App = () => {
   return (
-    <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -25,7 +23,6 @@ const App = () => {
           <Route path="Contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
   );
 };
 
