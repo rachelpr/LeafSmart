@@ -2,16 +2,8 @@ import { useState } from 'react';
 import { AsyncPaginate } from "react-select-async-paginate";
 import axios from 'axios';
 
-//https://rapidapi.com/wirefreethought/api/geodb-cities
-const apiUrl = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities"
-const apiOptions = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '80d7167f11msh6c7145e3fd1d1a4p16cb90jsn629fc6ec6c82',
-		'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-	}
-};
-
+const apiUser = process.env.REACT_APP_GEONAMES_USERNAME;
+const apiUrl = process.env.REACT_APP_GEONAMES_URL;
 
 const Search = (props) => {
   const { onSearchChange } = props;
@@ -23,13 +15,13 @@ const Search = (props) => {
   }
 
   const loadOptions = (inputValue) => {
-    return axios.get(`${apiUrl}?countryIds=CA&minPopulation=100000&namePrefix=${inputValue}&types=CITY`, apiOptions)
+    return axios.get(`${apiUrl}?name_startsWith=${inputValue}&cities=cities5000&country=CA&featureClass=P&maxRows=5&username=${apiUser}`)
       .then(res => {
         return {
-          options: res.data.data.map((city => {
+          options: res.data.geonames.map((city => {
             return {
-              value: `${city.latitude} ${city.longitude}`,
-              label: `${city.city}, ${city.regionCode}`
+              value: `${city.geonameId} ${city.lat} ${city.lng}`,
+              label: `${city.toponymName}, ${city.adminName1}`
             }
           }))
         }
