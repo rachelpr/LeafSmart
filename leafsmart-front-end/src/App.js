@@ -38,7 +38,9 @@ const App = () => {
           <CityFacts
             geonameId={geonameId}
           />
-          <Events />
+          <Events
+            cityName={cityName}
+          />
           <QoLData />
         </div>
       </section>
