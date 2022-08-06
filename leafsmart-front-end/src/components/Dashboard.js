@@ -6,7 +6,6 @@ import CityFacts from "./CityFacts";
 import QoLData from "./QoLData";
 import Search from "./Search";
 
-import "../App.scss";
 import "../styles/main.css";
 
 const Dashboard = () => {

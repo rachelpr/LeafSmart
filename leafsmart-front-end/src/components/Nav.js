@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "./Logout";
 import LogIn from "./LogIn";
-import "./Nav.scss";
 import { useAuth } from "../contexts/AuthContext";
 import Favourites from "./Favourites";
 
