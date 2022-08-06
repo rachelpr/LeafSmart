@@ -1,18 +1,20 @@
-import React, { Fragment, useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import Events from "./components/Events"
-import "./App.scss";
 import CityFacts from "./components/CityFacts";
 import QoLData from "./components/QoLData";
 import Search from "./components/Search";
-import './styles/main.css';
 
-const handleOnSearchChange = (searchData) => {
-  //response contains { label: "Toronto, ON", value: "43.670277777 -79.386666666" }
-    console.log(searchData);
-}
+import './styles/main.css';
+import "./App.scss";
+
 
 const App = () => {
+
+  const handleOnSearchChange = (searchData) => {
+    //response contains data such as {value: '5946768 53.55014 -113.46871', label: 'Edmonton, Alberta'}
+      console.log(searchData);
+  }
+
   return (
     <main className="layout">
       <section className="nav-bar">
