@@ -41,7 +41,9 @@ const App = () => {
           <Events
             cityName={cityName}
           />
-          <QoLData />
+          <QoLData
+            cityName={cityName}
+          />
         </div>
       </section>
     </main>
