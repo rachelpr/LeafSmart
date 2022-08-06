@@ -7,6 +7,7 @@ import QoLData from "./QoLData";
 import Search from "./Search";
 
 import "../styles/main.css";
+import "../index.css"; // brings in our custom layout styles from previous iterations -- we can replace those classes with TW utility classes!
 
 const Dashboard = () => {
   const [cityName, setCityName] = useState(null);
@@ -16,7 +17,7 @@ const Dashboard = () => {
   const handleOnSearchChange = (searchData) => {
     //sample searchData: {value: '5946768 53.55014 -113.46871', label: 'Edmonton, Alberta'}
     const lowercasedCity = searchData.label.split(",")[0].toLowerCase();
-    const [geo] = searchData.value.split(" ");
+    const [geo] = searchData.value.split(" "); //destructure lat,lon to connect weatherAPI
 
     setCityName(lowercasedCity);
     // setCoordinates({lat: lat, lon: lon});
