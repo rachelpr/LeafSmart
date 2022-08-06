@@ -27,7 +27,11 @@ const CityFacts = (props) => {
           <>
             <h1>{city.name}</h1>
             <h2 className="inline">Population: </h2>
-            <NumberFormat value={city.population} thousandSeparator/>
+            <NumberFormat
+              value={city.population}
+              thousandSeparator
+              displayType="text"
+            />
           </>
         )}
       </section>
