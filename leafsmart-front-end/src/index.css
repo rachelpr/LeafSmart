@@ -23,7 +23,6 @@
   .login-button {
     @apply relative flex items-center justify-center
     h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
-    bg-White
     hover:bg-Independence hover:text-White
     rounded-3xl hover:rounded-xl
     transition-all duration-300 ease-linear
@@ -32,7 +31,7 @@
   .favourite-button {
     @apply relative flex items-center justify-center
     h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
-    hover:bg-Independence hover:text-White
+    hover:bg-red-500 hover:text-White
     rounded-3xl hover:rounded-xl
     transition-all duration-300 ease-linear
     cursor-pointer;

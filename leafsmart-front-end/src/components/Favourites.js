@@ -49,7 +49,7 @@ const Favourites = () => {
           </button>
         )}
         {open ? (
-          <div className="py-2 mt-2 bg-white rounded-lg shadow-xl">
+          <div className="pt-2 pb-2 ml-6 w-60 bg-White shadow-xl rounded-lg">
             {favArr}
           </div>
         ) : (
