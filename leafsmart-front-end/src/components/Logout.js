@@ -7,7 +7,7 @@ const Logout = () => {
 
   return (
     <div>
-      <div className='block'>{currentUser.first_name} {currentUser.last_name}</div>
+      <div className='block text-Independence'>{currentUser.first_name} {currentUser.last_name}</div>
       <button className='block' onClick={() => logout()}>LogOut</button>
     </div>
   )
