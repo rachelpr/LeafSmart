@@ -1,38 +1,47 @@
 import { React, useState, useEffect } from "react";
-import { WeatherApiKey, WeatherApiUrl } from "../openWeatherAPI";
+
 import axios from "axios";
 import "./CurrentWeather.css"
 
-const CurrentWeather = () => {
+const CurrentWeather = (props) => {
+  const { coordinates } = props;
+
   const [currentWeather, setCurrentWeather] = useState([]);
-  const [isLoading, setIsLoading] = useState([false]);
+  const [isLoading, setIsLoading] = useState(null);
+
+  const apiUrl = process.env.REACT_APP_OPEN_WEATHER_ENDPOINT_ENDPOINT;
+  const apiKey = process.env.REACT_APP_OPEN_WEATHER_ENDPOINT_KEY;
 
   useEffect(() => {
-    let lat = 44.64533;
-    let lon = -63.57239;
+    if (coordinates.length > 0) {
+      console.log(coordinates);
+      const [ lat, lon ] = coordinates;
 
-    // Open Weather API Endpoint
-    setIsLoading(true);
-    const currentWeatherEndpoint = `${WeatherApiUrl}/weather?lat=${lat}&lon=${lon}&appid=${WeatherApiKey}&units=metric`;
-    axios
-      .get(currentWeatherEndpoint)
-      .then((res) => {
-        const data = res.data;
-        setCurrentWeather(data);
-        setIsLoading(false);
-        //console.log(currentWeather);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+      // Open Weather API Endpoint
+      setIsLoading(true);
+      const currentWeatherEndpoint = `${apiUrl}/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+      axios
+        .get(currentWeatherEndpoint)
+        .then((res) => {
+          const data = res.data;
+          setCurrentWeather(data);
+          setIsLoading(false);
+          //console.log(currentWeather);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [coordinates, apiUrl, apiKey]);
+
   return (
     <main>
       <section>
-        {isLoading ? (
+        {isLoading && (
           /* put a fun spinner */
           <h1>is Loading?</h1>
-        ) : (
+        )}
+        {currentWeather.length > 0 && (
           <div className="weather">
             <div className="top">
               <div>
