@@ -7,6 +7,7 @@ const About = () => {
       <section className="nav-bar">
         <Nav />
       </section>
+      <hr className="sidebar__separator sidebar--centered" />
       <section className="widgets">
         <div>
           <h1>About</h1>

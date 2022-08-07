@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FavouritesCard from "./FavouritesCard";
 import { useAuth } from "../contexts/AuthContext";
-import { MdFavorite } from "react-icons/md";
-
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
@@ -32,10 +30,6 @@ const Favourites = () => {
       });
   };
 
-  const SideBarIcon = ({ icon }) => (
-    <div className="sidebar-icon group">{icon}</div>
-  );
-
   const favArr = favourites.map((favs) => {
     return <FavouritesCard key={favs.geoname_id} name={favs.city_name} />;
   });
@@ -44,12 +38,12 @@ const Favourites = () => {
     <>
       <div>
         {user && (
-          <button onClick={handleClick} className="favourites-button">
-           <SideBarIcon icon={<MdFavorite size="32"/>}/>
+          <button onClick={handleClick} className="block">
+            Favourites
           </button>
         )}
         {open ? (
-          <div className="px-6 py-3 bg-Slate-50 shadow-xl w-fit rounded-lg">
+          <div className="py-2 mt-2 bg-white rounded-lg shadow-xl">
             {favArr}
           </div>
         ) : (
