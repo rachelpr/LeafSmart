@@ -12,16 +12,16 @@ import "../index.css"; // brings in our custom layout styles from previous itera
 
 const Dashboard = () => {
   const [cityName, setCityName] = useState(null);
-  // const [coordinates, setCoordinates] = useState({}); // waiting for weather api integration
+  const [coordinates, setCoordinates] = useState([]);
   const [geonameId, setGeonameId] = useState(null);
 
   const handleOnSearchChange = (searchData) => {
     //sample searchData: {value: '5946768 53.55014 -113.46871', label: 'Edmonton, Alberta'}
     const lowercasedCity = searchData.label.split(",")[0].toLowerCase();
-    const [geo] = searchData.value.split(" "); //destructure lat,lon to connect weatherAPI
+    const [geo, lat, lon] = searchData.value.split(" ");
 
     setCityName(lowercasedCity);
-    // setCoordinates({lat: lat, lon: lon});
+    setCoordinates([lat, lon]);
     setGeonameId(geo);
   }
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
         </div>
         <div>
           <CityFacts geonameId={geonameId} />
-          <CurrentWeather />
+          <CurrentWeather coordinates={coordinates}/>
           <QoLData cityName={cityName} />
         </div>
       </section>
