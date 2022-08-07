@@ -1,28 +1,39 @@
 import { React, useState, useEffect } from "react";
+import NumberFormat from "react-number-format";
 import axios from "axios"
 
-const CityFacts = () => {
+const apiUrl = process.env.REACT_APP_TELEPORT_CITYINFO_ENDPOINT;
+
+const CityFacts = (props) => {
+  const { geonameId } = props;
   const [city, setCity] = useState([]);
+
   useEffect(() => {
-    let geonameid = 6324729;
-    // Teleport API
-    const api = 
-    `https://api.teleport.org/api/cities/geonameid:${geonameid}`
-    
-    axios.get(`${api}`)
-    .then((res)=>{
-      const data = res.data
-      setCity(data);
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
-}, []);
+    if ( geonameId) {
+      axios.get(`${apiUrl}geonameid:${geonameId}`)
+      .then((res)=>{
+        setCity(res.data);
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    }
+  }, [geonameId]);
+
   return (
     <main>
       <section>
-        <h1>{city.name}</h1>
-        <h1>Population: {city.population}</h1>
+        { geonameId && (
+          <>
+            <h1>{city.name}</h1>
+            <h2 className="inline">Population: </h2>
+            <NumberFormat
+              value={city.population}
+              thousandSeparator
+              displayType="text"
+            />
+          </>
+        )}
       </section>
     </main>
   );
