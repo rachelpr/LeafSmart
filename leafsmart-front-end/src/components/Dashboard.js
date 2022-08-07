@@ -38,7 +38,7 @@ const Dashboard = () => {
         </div>
         <div>
           <CityFacts geonameId={geonameId} />
-          <CurrentWeather coordinates={coordinates}/>
+          <CurrentWeather className="bg-purple-200" coordinates={coordinates}/>
           <ForecastWeather coordinates={coordinates} />
           <QoLData cityName={cityName} />
         </div>

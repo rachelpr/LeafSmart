@@ -8,14 +8,14 @@ import { forecastDays } from "../helpers/selectors";
 const ForecastWeather = (props) => {
   const { coordinates } = props;
   const [forecastWeather, setForecastWeather] = useState([]);
-  const [isLoading, setIsLoading] = useState([false]);
+  const [isLoading, setIsLoading] = useState(null);
 
   const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT;
   const apiKey = process.env.REACT_APP_WEATHERBIT_KEY;
 
   useEffect(() => {
     if (coordinates.length > 0) {
-      console.log(coordinates);
+      //console.log(coordinates);
       const [lat, lon] = coordinates;
 
       // Weatherbit API Endpoint
@@ -41,7 +41,7 @@ const ForecastWeather = (props) => {
     .map((forecastWeather, index) => {
       return (
         <ForecastWeatherCard
-          key={forecastWeather.id}
+          key={index}
           icon={forecastWeather.weather.icon}
           description={forecastWeather.weather.description}
           temp={forecastWeather.temp}
