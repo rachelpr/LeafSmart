@@ -69,16 +69,3 @@ const CurrentWeather = () => {
 };
 
 export default CurrentWeather;
-
-// Promise.all(weatherAPIEndpoints.map((endpoint) => axios.get(endpoint)))
-// .then(([getCurrentWeather, getForecastWeather]) => {
-//   const currentWeatherResponse = getCurrentWeather.data;
-//   const forecastWeatherResponse = getForecastWeather.data;
-//   console.log(currentWeatherResponse);
-//   //console.log(forecastWeatherResponse);
-//   setCurrentWeather(currentWeatherResponse);
-//   setForecastWeather(forecastWeatherResponse);
-//   console.log(currentWeatherResponse.weather[0].description)
-// })
-
-//{`/icons/${currentWeather.weather[0].icon}.png`}
