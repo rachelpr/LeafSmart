@@ -7,7 +7,7 @@ const CurrentWeather = (props) => {
   const { coordinates } = props;
 
   const [currentWeather, setCurrentWeather] = useState([]);
-  const [isLoading, setIsLoading] = useState([false]);
+  const [isLoading, setIsLoading] = useState(null);
 
   const apiUrl = process.env.REACT_APP_OPEN_WEATHER_ENDPOINT_ENDPOINT;
   const apiKey = process.env.REACT_APP_OPEN_WEATHER_ENDPOINT_KEY;
@@ -37,10 +37,11 @@ const CurrentWeather = (props) => {
   return (
     <main>
       <section>
-        {isLoading ? (
+        {isLoading && (
           /* put a fun spinner */
           <h1>is Loading?</h1>
-        ) : (
+        )}
+        {currentWeather.length > 0 && (
           <div className="weather">
             <div className="top">
               <div>
