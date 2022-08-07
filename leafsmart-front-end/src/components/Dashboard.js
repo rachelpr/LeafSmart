@@ -6,6 +6,7 @@ import CityFacts from "./CityFacts";
 import CurrentWeather from './CurrentWeather';
 import QoLData from "./QoLData";
 import Search from "./Search";
+import ForecastWeather from './ForecastWeather';
 
 import "../styles/main.css";
 import "../index.css"; // brings in our custom layout styles from previous iterations -- we can replace those classes with TW utility
@@ -38,6 +39,7 @@ const Dashboard = () => {
         <div>
           <CityFacts geonameId={geonameId} />
           <CurrentWeather coordinates={coordinates}/>
+          <ForecastWeather coordinates={coordinates} />
           <QoLData cityName={cityName} />
         </div>
       </section>
