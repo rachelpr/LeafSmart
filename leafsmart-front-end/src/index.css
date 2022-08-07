@@ -5,45 +5,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer components {
   h1 {
     font-family: "El Messiri", serif;
   }
   html {
     font-family: "Open Sans", sans-serif;
   }
-}
-
-.nav-bar {
-  background-color: #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(#FFFFFF, 0.5);
-  display: flex;
-  flex-direction: column;
-  min-width: 18rem;
-  padding: 2rem 0;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.foot-links {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.widgets {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 2rem 0;
-  padding: 0 2rem;
-  width: 100%;
+  .sidebar-icon {
+    @apply relative flex items-center justify-center
+    h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+    hover:bg-Independence hover:text-White
+    rounded-3xl hover:rounded-xl
+    transition-all duration-300 ease-linear
+    cursor-pointer;
+  }
+  .login-button {
+    @apply relative flex items-center justify-center
+    h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+    bg-White
+    hover:bg-Independence hover:text-White
+    rounded-3xl hover:rounded-xl
+    transition-all duration-300 ease-linear
+    cursor-pointer;
+  }
+  .favourite-button {
+    @apply relative flex items-center justify-center
+    h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+    hover:bg-Independence hover:text-White
+    rounded-3xl hover:rounded-xl
+    transition-all duration-300 ease-linear
+    cursor-pointer;
+  }
+  .logout-button {
+    @apply relative flex items-center justify-center
+    h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+    hover:bg-Independence hover:text-White
+    rounded-3xl hover:rounded-xl
+    transition-all duration-300 ease-linear
+    cursor-pointer;
+  }
 }
 
 .layout {
   display: flex;
   min-height: 100vh;
+  background-color: #F2E9E4;
 }
 
 @media only screen and (max-width: 960px) {
