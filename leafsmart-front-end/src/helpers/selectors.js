@@ -96,12 +96,27 @@ export function filterQoL(slugScore) {
     "Internet Access",
     "Leisure \u0026 Culture",
     "Tolerance",
-    "Outdoors","Travel Connectivity"
+    "Outdoors",
+    "Travel Connectivity",
   ];
-  return slugScore.filter((category) =>
-    categoriesArr.includes(category.name)
-  );
-  
+  return slugScore.filter((category) => categoriesArr.includes(category.name));
 }
 
 //console.log(filterQoL(slugScore))
+
+// helper function to get the day of the week for the forecast
+export function forecastDays() {
+  const weekdays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  const dayOfTheWeek = new Date().getDay();
+  return weekdays
+    .slice(dayOfTheWeek, weekdays.length)
+    .concat(weekdays.slice(0, dayOfTheWeek));
+}
