@@ -15,7 +15,7 @@ const ForecastWeather = (props) => {
 
   useEffect(() => {
     if (coordinates.length > 0) {
-      console.log(coordinates);
+      //console.log(coordinates);
       const [lat, lon] = coordinates;
 
       // Weatherbit API Endpoint
@@ -51,7 +51,6 @@ const ForecastWeather = (props) => {
     });
 
   return (
-    <main>
       <section>
         {isLoading && (
           /* put a fun spinner */
@@ -59,7 +58,6 @@ const ForecastWeather = (props) => {
         )}
         {forecastWeather.length > 0 && <ul>{forecastDaysArr}</ul>}
       </section>
-    </main>
   );
 };
 

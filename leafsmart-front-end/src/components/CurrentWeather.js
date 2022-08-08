@@ -36,7 +36,6 @@ const CurrentWeather = (props) => {
   //console.log(currentWeather);
 
   return (
-    <main>
       <section>
         {isLoading && (
           /* put a fun spinner */
@@ -63,7 +62,6 @@ const CurrentWeather = (props) => {
           </div>
         )}
       </section>
-    </main>
   );
 };
 
