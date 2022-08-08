@@ -21,7 +21,7 @@ const CityFacts = (props) => {
   }, [geonameId]);
 
   return (
-    <section>
+    <section className="bg-Independence rounded-lg text-Isabelline p-8">
       { geonameId && (
         <>
           <h1>{city.name}</h1>
