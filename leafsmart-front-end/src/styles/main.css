@@ -464,7 +464,15 @@ h1 {
   }
 html {
     font-family: "Open Sans", sans-serif;
+    height: 100%;
   }
+.page-container{
+  border-radius: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 11rem;
+  padding-right: 8rem;
+}
 .sidebar-icon{
   position: relative;
   margin-left: auto;
@@ -586,6 +594,9 @@ html {
 .left-0{
   left: 0px;
 }
+.m-auto{
+  margin: auto;
+}
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -653,6 +664,9 @@ html {
 }
 .w-36{
   width: 9rem;
+}
+.w-5\/6{
+  width: 83.333333%;
 }
 .border-collapse{
   border-collapse: collapse;
@@ -796,22 +810,6 @@ html {
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.nav-bar {
-  background-color: #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(#FFFFFF, 0.5);
-  display: flex;
-  flex-direction: column;
-  min-width: 6rem;
-  padding: 2rem 0;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.layout {
-background-color: #F2E9E4;
-display: flex;
-min-height: 100vh;
-}
 
 @media only screen and (max-width: 960px) {
   html {
@@ -848,5 +846,3 @@ min-height: 100vh;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-
-
