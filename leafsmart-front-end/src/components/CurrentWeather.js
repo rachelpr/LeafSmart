@@ -7,10 +7,12 @@ const CurrentWeather = (props) => {
   const { coordinates } = props;
 
   const [currentWeather, setCurrentWeather] = useState([]);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState([null]);
+
 
   const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT;
   const apiKey = process.env.REACT_APP_WEATHERBIT_KEY;
+
 
   useEffect(() => {
     if (coordinates.length > 0) {
