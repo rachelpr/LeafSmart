@@ -716,6 +716,10 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(242 233 228 / var(--tw-bg-opacity));
 }
+.bg-Independence{
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 78 105 / var(--tw-bg-opacity));
+}
 .bg-White{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -791,6 +795,10 @@ html {
 }
 .italic{
   font-style: italic;
+}
+.text-Isabelline{
+  --tw-text-opacity: 1;
+  color: rgb(242 233 228 / var(--tw-text-opacity));
 }
 .shadow-xl{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
