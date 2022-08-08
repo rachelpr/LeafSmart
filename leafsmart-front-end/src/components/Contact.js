@@ -8,7 +8,7 @@ const Contact = () => {
         <Nav />
       </section>
       <hr className="sidebar__separator sidebar--centered" />
-      <section className="widgets">
+      <section>
         <div>
           <h1>Contact</h1>
         </div>
