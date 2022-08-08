@@ -50,7 +50,7 @@ const Events = (props) => {
 
   return (
     <section className="event-widget">
-      <div class="w-1/3 flex mt-6 mb-6 p-1 bg-white overflow-y-auto h-96">
+      <div class="flex mt-6 mb-6 p-1 bg-white overflow-y-auto h-96">
         <table className="w-fit bg-Isabelline border border-collapse">
           <thead class="text-xs uppercase">
             <tr>

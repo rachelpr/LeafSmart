@@ -3,18 +3,15 @@ import Nav from "./Nav";
 
 const About = () => {
   return (
-    <main className="layout">
-      <section className="nav-bar">
-        <Nav />
-      </section>
-      <hr className="sidebar__separator sidebar--centered" />
-      <section className="widgets">
+    <main className="page-container">
+      <Nav />
+      <section className="bg-Isabelline">
         <div>
           <h1>About</h1>
         </div>
       </section>
     </main>
-  )
+  );
 }
 
 export default About

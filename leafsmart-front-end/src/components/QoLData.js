@@ -38,7 +38,7 @@ const QoLData = (props) => {
 
   return (
     <section>
-      <ol>{categoriesArr}</ol>
+      <ul className="flex flex-wrap">{categoriesArr}</ul>
     </section>
   );
 };

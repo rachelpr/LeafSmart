@@ -9,7 +9,6 @@ import Search from "./Search";
 import ForecastWeather from './ForecastWeather';
 
 import "../styles/main.css";
-import "../index.css"; // brings in our custom layout styles from previous iterations -- we can replace those classes with TW utility
 
 const Dashboard = () => {
   const [cityName, setCityName] = useState(null);
@@ -27,21 +26,23 @@ const Dashboard = () => {
   }
 
   return (
-    <main className="layout">
-      <section className="nav-bar">
-        <Nav />
-      </section>
-      <section className="widgets">
+    <main className="pl-44 pr-32 py-8">
+      <Nav />
+      <section className="bg-Isabelline py-12 h-screen" >
         <Search onSearchChange={handleOnSearchChange}/>
-        <div>
-          <Events cityName={cityName} />
-        </div>
-        <div>
-          <CityFacts geonameId={geonameId} />
-          <CurrentWeather className="bg-purple-200" coordinates={coordinates}/>
-          <ForecastWeather coordinates={coordinates} />
-          <QoLData cityName={cityName} />
-        </div>
+        { cityName && (
+          <div className="flex p-8">
+            <div className="">
+              <Events cityName={cityName} />
+            </div>
+            <div className="ml-12">
+              <CityFacts geonameId={geonameId} />
+              <CurrentWeather coordinates={coordinates}/>
+              <ForecastWeather coordinates={coordinates} />
+              <QoLData cityName={cityName} />
+            </div>
+          </div>
+        )}
       </section>
     </main>
   )

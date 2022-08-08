@@ -21,21 +21,19 @@ const CityFacts = (props) => {
   }, [geonameId]);
 
   return (
-    <main>
-      <section>
-        { geonameId && (
-          <>
-            <h1>{city.name}</h1>
-            <h2 className="inline">Population: </h2>
-            <NumberFormat
-              value={city.population}
-              thousandSeparator
-              displayType="text"
-            />
-          </>
-        )}
-      </section>
-    </main>
+    <section className="bg-Independence rounded-lg text-Isabelline p-8">
+      { geonameId && (
+        <>
+          <h1>{city.name}</h1>
+          <h2 className="inline">Population: </h2>
+          <NumberFormat
+            value={city.population}
+            thousandSeparator
+            displayType="text"
+          />
+        </>
+      )}
+    </section>
   );
 };
 
