@@ -9,8 +9,10 @@ const CurrentWeather = (props) => {
   const [currentWeather, setCurrentWeather] = useState([]);
   const [isLoading, setIsLoading] = useState([null]);
 
-  const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT_ENDPOINT;
-  const apiKey = process.env.REACT_APP_WEATHERBIT_ENDPOINT_KEY;
+
+  const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT;
+  const apiKey = process.env.REACT_APP_WEATHERBIT_KEY;
+
 
   useEffect(() => {
     if (coordinates.length > 0) {
@@ -36,12 +38,12 @@ const CurrentWeather = (props) => {
   //console.log(currentWeather);
 
   return (
-    <main>
       <section>
-        {isLoading ? (
+        {isLoading && (
           /* put a fun spinner */
           <h1>is Loading?</h1>
-        ):(
+        )}
+        {currentWeather && (
         <div className="weather">
           <div className="top">
             <div>
@@ -62,7 +64,6 @@ const CurrentWeather = (props) => {
         </div>
         )}
       </section>
-    </main>
   );
 };
 
