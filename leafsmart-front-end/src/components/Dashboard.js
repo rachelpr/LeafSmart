@@ -27,21 +27,23 @@ const Dashboard = () => {
   }
 
   return (
-    <main className="layout">
-      <section className="nav-bar">
-        <Nav />
-      </section>
-      <section className="widgets">
+    <main className="pl-44 pr-32 py-8">
+      <Nav />
+      <section>
         <Search onSearchChange={handleOnSearchChange}/>
-        <div>
-          <Events cityName={cityName} />
-        </div>
-        <div>
-          <CityFacts geonameId={geonameId} />
-          <CurrentWeather className="bg-purple-200" coordinates={coordinates}/>
-          <ForecastWeather coordinates={coordinates} />
-          <QoLData cityName={cityName} />
-        </div>
+        { cityName && (
+          <div>
+            <div>
+              <Events cityName={cityName} />
+            </div>
+            <div>
+              <CityFacts geonameId={geonameId} />
+              <CurrentWeather className="bg-purple-200" coordinates={coordinates}/>
+              <ForecastWeather coordinates={coordinates} />
+              <QoLData cityName={cityName} />
+            </div>
+          </div>
+        )}
       </section>
     </main>
   )
