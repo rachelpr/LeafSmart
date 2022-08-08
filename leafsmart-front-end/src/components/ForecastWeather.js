@@ -8,10 +8,10 @@ import { forecastDays } from "../helpers/selectors";
 const ForecastWeather = (props) => {
   const { coordinates } = props;
   const [forecastWeather, setForecastWeather] = useState([]);
-  const [isLoading, setIsLoading] = useState([false]);
+  const [isLoading, setIsLoading] = useState(null);
 
-  const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT_ENDPOINT;
-  const apiKey = process.env.REACT_APP_WEATHERBIT_ENDPOINT_KEY;
+  const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT;
+  const apiKey = process.env.REACT_APP_WEATHERBIT_KEY;
 
   useEffect(() => {
     if (coordinates.length > 0) {
@@ -41,7 +41,7 @@ const ForecastWeather = (props) => {
     .map((forecastWeather, index) => {
       return (
         <ForecastWeatherCard
-          key={forecastWeather.id}
+          key={index}
           icon={forecastWeather.weather.icon}
           description={forecastWeather.weather.description}
           temp={forecastWeather.temp}
@@ -53,14 +53,11 @@ const ForecastWeather = (props) => {
   return (
     <main>
       <section>
-        {isLoading ? (
+        {isLoading && (
           /* put a fun spinner */
           <h1>is Loading?</h1>
-        ) : (
-          <ul>
-            <li>{forecastDaysArr}</li>
-          </ul>
         )}
+        {forecastWeather.length > 0 && <ul>{forecastDaysArr}</ul>}
       </section>
     </main>
   );

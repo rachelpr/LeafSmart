@@ -6,31 +6,31 @@ import "./CurrentWeather.css";
 const CurrentWeather = (props) => {
   const { coordinates } = props;
 
-  const [currentWeather, setCurrentWeather] = useState([]);
-  const [isLoading, setIsLoading] = useState([null]);
+  const [currentWeather, setCurrentWeather] = useState({});
+  const [isLoading, setIsLoading] = useState(null);
 
-  const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT_ENDPOINT;
-  const apiKey = process.env.REACT_APP_WEATHERBIT_ENDPOINT_KEY;
+  const apiUrl = process.env.REACT_APP_WEATHERBIT_ENDPOINT;
+  const apiKey = process.env.REACT_APP_WEATHERBIT_KEY;
 
   useEffect(() => {
     if (coordinates.length > 0) {
       console.log(coordinates);
       const [lat, lon] = coordinates;
 
-    // Weatherbit API Endpoint
-    setIsLoading(true);
-    const currentWeatherEndpoint = `${apiUrl}/current?lat=${lat}&lon=${lon}&key=${apiKey}`;
-    axios
-      .get(currentWeatherEndpoint)
-      .then((res) => {
-        const data = res.data["data"][0];
-        setCurrentWeather(data);
-        setIsLoading(false);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      // Weatherbit API Endpoint
+      setIsLoading(true);
+      const currentWeatherEndpoint = `${apiUrl}/current?lat=${lat}&lon=${lon}&key=${apiKey}`;
+      axios
+        .get(currentWeatherEndpoint)
+        .then((res) => {
+          const data = res.data["data"][0];
+          setCurrentWeather(data);
+          setIsLoading(false);
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }, [coordinates, apiUrl, apiKey]);
   //console.log(currentWeather);
@@ -38,28 +38,29 @@ const CurrentWeather = (props) => {
   return (
     <main>
       <section>
-        {isLoading ? (
+        {isLoading && (
           /* put a fun spinner */
           <h1>is Loading?</h1>
-        ):(
-        <div className="weather">
-          <div className="top">
-            <div>
-              <p className="city">{currentWeather.city_name}</p>
-              <p className="weather-description">
-                {currentWeather.weather.description}
-              </p>
+        )}
+        {Object.keys(currentWeather).length > 0 && (
+          <div className="weather">
+            <div className="top">
+              <div>
+                <p className="city">{currentWeather.city_name}</p>
+                <p className="weather-description">
+                  {currentWeather.weather.description}
+                </p>
+              </div>
+              <img
+                alt="weather"
+                className="weather-icon"
+                src={`/icons/${currentWeather.weather.icon}.png`}
+              />
             </div>
-            <img
-              alt="weather"
-              className="weather-icon"
-              src={`/icons/${currentWeather.weather.icon}.png`}
-            />
+            <div className="bottom">
+              <p className="temperature">{currentWeather.temp}°C</p>
+            </div>
           </div>
-          <div className="bottom">
-            <p className="temperature">{currentWeather.temp}°C</p>
-          </div>
-        </div>
         )}
       </section>
     </main>
