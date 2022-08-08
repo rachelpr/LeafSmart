@@ -29,16 +29,16 @@ const Dashboard = () => {
   return (
     <main className="pl-44 pr-32 py-8">
       <Nav />
-      <section>
+      <section className="bg-Isabelline py-12 h-screen">
         <Search onSearchChange={handleOnSearchChange}/>
         { cityName && (
-          <div>
-            <div>
+          <div className="flex p-8">
+            <div className="">
               <Events cityName={cityName} />
             </div>
-            <div>
+            <div className="ml-12">
               <CityFacts geonameId={geonameId} />
-              <CurrentWeather className="bg-purple-200" coordinates={coordinates}/>
+              <CurrentWeather coordinates={coordinates}/>
               <ForecastWeather coordinates={coordinates} />
               <QoLData cityName={cityName} />
             </div>
