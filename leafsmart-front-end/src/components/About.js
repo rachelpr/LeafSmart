@@ -8,38 +8,41 @@ const About = () => {
         <Nav />
       </section>
       <section className="widgets">
-        <div class="px-16 mt-16 bg-Isabelline h-full">
-          <h1 className="text-9xl">About LeafSmart</h1>
-          <h2 className="text-5xl">
-            The Perfect place to get your travel location details before you
-            "leaf"!
-          </h2>
-          <div class="bg-[#7c9bdb] flex rounded-full p-4">
-            <div class="flex items-center text-white font-black text-base">
-              LeafSmart is the hot new app to get all the details about the
-              locations you want to visit.
-              <br />
-              4+ location based api's at your fingertips
-
+        <div className="pt-7 pt-lg-9">
+          <div className="container-xl p-responsive">
+            <div className="col-12 col-lg-7 mb-8 mx-auto text-center">
+              <h1 className="h1-mktg mb-3">LeafSmart About Page</h1>
+              <p className="f2-mktg color-fg-muted text-normal mb-4">
+                The best place to start thinking of travelling!
+              </p>
             </div>
-          </div>
-          <div class="bg-[#7c9bdb] flex rounded-full p-4">
-            <div class="flex items-center text-white font-black text-base">
-              <div>
-                <ul>
-                  <li>Events</li>
-                  <li>Weather</li>
-                  <li>Quality of life</li>
-                  <li>Handy Dandy Search bar!</li>
-                </ul>
+            <div className="mb-6 text-center">
+              <table className="d-flex gutter-condensed gutter-md-spacious col-12 col-lg-8 flex-justify-between mx-auto">
+                <div className="col-6 col-sm-4 col-md-3">
+                  <h2 className="f3-mktg text-mono text-normal no-wrap">TicketMaster</h2>
+                  <span className="color-fg-muted">Api</span>
+                  <p className="m-0 text-mono f6-mktg">Showing you the best Events</p>
+                </div>
+                <div className="col-6 col-sm-4 col-md-3">
+                  <h2 className="f3-mktg text-mono text-normal no-wrap">Current and Forecast Weather</h2>
+                  <span className="color-fg-muted">Api</span>
+                  <p className="m-0 text-mono f6-mktg">Presenting the future weather</p>
+                </div>
+                <div className="col-6 col-sm-4 col-md-3">
+                  <h2 className="f3-mktg text-mono text-normal no-wrap">Quality of Life</h2>
+                  <span className="color-fg-muted">Api</span>
+                  <p className="m-0 text-mono f6-mktg">Giving you all there is to know about your future destination</p>
+                </div>
+              </table>
+              <div className="mb-8 mx-auto text-center">
+                <div className="d-inline-block border p-4 rounded-2">
+                  <span className="d-inline-block f4-mktg">Check out our contact page!</span>
+                </div>
               </div>
             </div>
+
           </div>
-          <div class="bg-[#7c9bdb] flex rounded-full p-4">
-            <div class="flex items-center text-white font-black text-base">
-              Version - 1.0.0
-            </div>
-          </div>
+          
         </div>
       </section>
     </main>
