@@ -15,17 +15,15 @@ const Nav = () => {
   );
 
   return (
-    <>
-      <div className="fixed top-0 left-0 h-screen w-24 flex flex-col
-                  bg-white dark:bg-gray-900 shadow-lg">
+    <nav className="fixed top-0 left-0 h-screen w-36 flex flex-col bg-white dark:bg-gray-900 shadow-lg justify-between">
+      <div>
         <Link to="/">
           <SideBarIcon icon={<RiAncientPavilionFill size="42" />} />
         </Link>
         {currentUser ? <Logout /> : <LogIn />}
         <Favourites />
       </div>
-      <div className="fixed bottom-0 left-0 w-24 flex flex-col
-                  bg-white shadow-lg">
+      <div>
         <Link to="/Contact">
           <SideBarIcon icon={<FaUsers size="32"/>} />
         </Link>
@@ -33,7 +31,7 @@ const Nav = () => {
           <SideBarIcon icon={<FaComments size="32"/>} />
         </Link>
       </div>
-    </>
+    </nav>
   );
 };
 
