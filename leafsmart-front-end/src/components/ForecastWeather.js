@@ -56,11 +56,7 @@ const ForecastWeather = (props) => {
           /* put a fun spinner */
           <h1>is Loading?</h1>
         )}
-        {forecastWeather.length > 0 &&(
-          <ul>
-            <li>{forecastDaysArr}</li>
-          </ul>
-        )}
+        {forecastWeather.length > 0 && <ul>{forecastDaysArr}</ul>}
       </section>
   );
 };
