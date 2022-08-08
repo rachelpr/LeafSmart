@@ -9,7 +9,6 @@ import Search from "./Search";
 import ForecastWeather from './ForecastWeather';
 
 import "../styles/main.css";
-import "../index.css"; // brings in our custom layout styles from previous iterations -- we can replace those classes with TW utility
 
 const Dashboard = () => {
   const [cityName, setCityName] = useState(null);
@@ -29,7 +28,7 @@ const Dashboard = () => {
   return (
     <main className="pl-44 pr-32 py-8">
       <Nav />
-      <section className="bg-Isabelline py-12 h-screen">
+      <section className="bg-Isabelline py-12 h-screen" >
         <Search onSearchChange={handleOnSearchChange}/>
         { cityName && (
           <div className="flex p-8">
