@@ -31,7 +31,7 @@ const Dashboard = () => {
   return (
     <main className="pl-44 pr-32">
       <Nav />
-      <section className="bg-Isabelline pt-5 h-screen" >
+      <section className="bg-Isabelline py-5">
         <div className="flex p-8 w-100">
           <div>
             <div className="flex justify-between">
