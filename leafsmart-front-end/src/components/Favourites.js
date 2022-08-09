@@ -3,6 +3,9 @@ import FavouritesCard from "./FavouritesCard";
 import { useAuth } from "../contexts/AuthContext";
 import { MdFavorite } from "react-icons/md";
 
+import FavouritesCard from "./FavouritesCard";
+import SideBarIcon from "./buttons/SideBarIcon";
+
 const Favourites = () => {
   const [favs, setFavs] = useState([]);
   const [open, setOpen] = useState(false);
@@ -25,11 +28,6 @@ const Favourites = () => {
     return <FavouritesCard key={favs.geoname_id} name={favs.city_name} />;
   });
 
-  const SideBarIcon = ({ icon }) => (
-    <div className="sidebar-icon group">
-      {icon}
-    </div>
-  );
   return (
     <>
       <div>
