@@ -10,7 +10,7 @@ import { FaComments, FaUsers } from "react-icons/fa";
 const Nav = () => {
   const { currentUser } = useAuth();
 
-  const SideBarIcon = ({ icon, text = "tooltip 💡" }) => (
+  const SideBarIcon = ({ icon }) => (
     <div className="sidebar-icon group">{icon}</div>
   );
 
