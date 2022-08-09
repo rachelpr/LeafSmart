@@ -48,6 +48,7 @@ const Events = (props) => {
     );
   });
 
+
 return (
   <section className="event-widget">
     <div className="flex flex-col w-2/3 h-screen">

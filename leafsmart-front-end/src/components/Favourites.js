@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import FavouritesCard from "./FavouritesCard";
 import { useAuth } from "../contexts/AuthContext";
 import { MdFavorite } from "react-icons/md";
+
+import FavouritesCard from "./FavouritesCard";
+import SideBarIcon from "./buttons/SideBarIcon";
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
@@ -35,11 +37,6 @@ const Favourites = () => {
     return <FavouritesCard key={favs.geoname_id} name={favs.city_name} />;
   });
 
-  const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
-    <div className="sidebar-icon group">
-      {icon}
-    </div>
-  );
   return (
     <>
       <div>
