@@ -48,28 +48,28 @@ const Events = (props) => {
     );
   });
 
-  return (
-    <section className="event-widget">
-      <div class="flex mt-6 mb-6 p-1 bg-white overflow-y-auto h-96">
-        <table className="w-fit bg-Isabelline border border-collapse">
-          <thead class="text-xs uppercase">
-            <tr>
-              <th class="border-collapse bg-Isabelline text-left px-8 py-1">
-                Event Details
-              </th>
-              <th class="border-collapse bg-Isabelline text-left px-8 py-1">
-                Event Date
-              </th>
-              <th class="border-collapse bg-Isabelline text-left px-8 py-1">
-                Get Tickets!
-              </th>
-            </tr>
-          </thead>
-          <tbody>{eventsArr}</tbody>
-        </table>
+return (
+  <section className="event-widget">
+    <div className="flex flex-col w-2/3 h-screen">
+      <div className="overflow-y-auto sm:-mx-6 lg:-mx-8">
+        <div className="py-2 inline-block sm:px-2 lg:px-4">
+          <div className="overflow-y-hidden">
+            <table className="bg-White sm: table-auto">
+              <thead className="hidden bg-white border-b">
+                <tr>
+                  <th>Event Details</th>
+                  <th>E</th>
+                  <th>G</th>
+                </tr>
+              </thead>
+              <tbody>{eventsArr}</tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 
 export default Events;
