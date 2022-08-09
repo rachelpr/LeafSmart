@@ -12,12 +12,12 @@ const Favourites = () => {
 
   useEffect(() => {
     setUser(currentUser);
-  }, [currentUser]);
+    setFavs(favourites)
+  }, [currentUser, favourites]);
 
   const handleClick = async (e) => {
     e.preventDefault();
     returnFavourites()
-    setFavs(favourites)
     setOpen(!open);
   };
 
