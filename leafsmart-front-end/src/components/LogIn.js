@@ -16,7 +16,7 @@ export default function LogIn(props) {
     setOpen(!open);
   };
 
-  const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
+  const SideBarIcon = ({ icon }) => (
     <div className="sidebar-icon group">
       {icon}
     </div>
