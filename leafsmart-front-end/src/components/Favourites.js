@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import FavouritesCard from "./FavouritesCard";
 import { useAuth } from "../contexts/AuthContext";
 import { MdFavorite } from "react-icons/md";
 
 const Favourites = () => {
-  const [favourites, setFavourites] = useState([]);
+  const [favs, setFavs] = useState([]);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({});
 
-  const { currentUser } = useAuth();
+  const { currentUser, favourites, returnFavourites } = useAuth();
 
   useEffect(() => {
     setUser(currentUser);
@@ -17,25 +16,16 @@ const Favourites = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    axios
-      .post("/favourites", {
-        user_id: user.id,
-      })
-      .then((res) => {
-        const data = res.data;
-        setFavourites(data);
-        setOpen(!open);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    returnFavourites()
+    setFavs(favourites)
+    setOpen(!open);
   };
 
-  const favArr = favourites.map((favs) => {
+  const favArr = favs.map((favs) => {
     return <FavouritesCard key={favs.geoname_id} name={favs.city_name} />;
   });
 
-  const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
+  const SideBarIcon = ({ icon }) => (
     <div className="sidebar-icon group">
       {icon}
     </div>
