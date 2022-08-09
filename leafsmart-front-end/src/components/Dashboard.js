@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 import Nav from "./Nav";
 import Events from "./Events";
@@ -7,6 +9,7 @@ import CurrentWeather from './CurrentWeather';
 import QoLData from "./QoLData";
 import Search from "./Search";
 import ForecastWeather from './ForecastWeather';
+import AddFavourite from './buttons/AddFavourite';
 
 import "../styles/main.css";
 
@@ -26,23 +29,30 @@ const Dashboard = () => {
   }
 
   return (
-    <main className="pl-44 pr-32 py-8">
+    <main className="pl-44 pr-32">
       <Nav />
-      <section className="bg-Isabelline py-12 h-screen" >
-        <Search onSearchChange={handleOnSearchChange}/>
-        { cityName && (
-          <div className="flex p-8">
-            <div className="">
-              <Events cityName={cityName} />
+      <section className="bg-Isabelline pt-5 h-screen" >
+        <div className="flex p-8 w-100">
+          <div>
+            <div className="flex justify-between">
+            <Link to="#">
+              <AddFavourite
+                icon={<FaPlus size="40"/>}
+              />
+            </Link>
+            <Search onSearchChange={handleOnSearchChange}/>
             </div>
+            {cityName && <Events cityName={cityName} />}
+          </div>
+          {cityName && (
             <div className="ml-12">
-              <CityFacts geonameId={geonameId} />
               <CurrentWeather coordinates={coordinates}/>
               <ForecastWeather coordinates={coordinates} />
+              <CityFacts geonameId={geonameId} />
               <QoLData cityName={cityName} />
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </section>
     </main>
   )
