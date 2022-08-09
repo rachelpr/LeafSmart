@@ -1,24 +1,29 @@
 import React from "react";
+import moment from "moment"
 
 export default function EventCard(props) {
   const { name, image, date, url } = props;
 
+  const currentDate = moment(date).format('MMMM Do YYYY');
+
   return (
     <>
-      <tr>
-        <td class="border px-8 py-1">
-          <h1>{name}</h1>
+      <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+        <td class="px-2 py-4 whitespace-nowrap text-sm font-medium">
           <img
-            className="h-auto w-28 pb-2/3 sm:pt-1/3"
+            className="h-auto w-48 px-6 py-4 whitespace-nowrap"
             src={image}
             alt={name}
           />
         </td>
-        <td class="border text-xs px-9 py-1">
-          <p>{date}</p>
+        <td classNam="text-sm text-Independence font-light px-2 py-2 whitespace-nowrap">
+          <p>{currentDate}</p>
         </td>
-        <td class="border text-xs px-7 py-1">
-          <a href={url}>Find your tickets here!</a>
+        <td className="text-center text-Independence font-light px-2 py-2 whitespace-nowrap">
+           <p className="text-xl">{name}</p>
+        </td>
+        <td className="text-sm text-Independence font-light px-2 py-2 whitespace-nowrap">
+          <a href={url}><button className="ml-4 rounded-lg bg-Independence block p-1 ml-6 mt-2 shadow border-2 border-Zinc-300 focus:outline-none focus:border-White">Get your tickets!</button></a>
         </td>
       </tr>
     </>
