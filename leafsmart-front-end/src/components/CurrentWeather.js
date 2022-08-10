@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 
 import axios from "axios";
-import "./CurrentWeather.css";
 
 const CurrentWeather = (props) => {
   const { coordinates } = props;
@@ -36,32 +35,32 @@ const CurrentWeather = (props) => {
   //console.log(currentWeather);
 
   return (
-      <section>
-        {isLoading && (
-          /* put a fun spinner */
-          <h1>is Loading?</h1>
-        )}
-        {Object.keys(currentWeather).length > 0 && (
-          <div className="weather">
-            <div className="top">
-              <div>
-                <p className="city">{currentWeather.city_name}</p>
-                <p className="weather-description">
-                  {currentWeather.weather.description}
-                </p>
-              </div>
+    <section className="">
+      {isLoading && (
+        /* put a fun spinner */
+        <h1>is Loading?</h1>
+      )}
+      {Object.keys(currentWeather).length > 0 && (
+        <div className="">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              {/* <p className="city">{currentWeather.city_name}</p> */}
+              <p className="text-White">
+                Today: {Math.round(currentWeather.temp)}°C
+              </p>
+            </div>
+            <div className="flex items-center">
               <img
                 alt="weather"
-                className="weather-icon"
-                src={`/icons/${currentWeather.weather.icon}.png`}
+                className="w-14 h-14"
+                src={`/icons/${currentWeather.weather.icon}.svg`}
               />
-            </div>
-            <div className="bottom">
-              <p className="temperature">{currentWeather.temp}°C</p>
+              <p className="text-White">{currentWeather.weather.description}</p>
             </div>
           </div>
-        )}
-      </section>
+        </div>
+      )}
+    </section>
   );
 };
 
