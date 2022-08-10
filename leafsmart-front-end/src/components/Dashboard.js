@@ -43,7 +43,7 @@ const Dashboard = () => {
           </div>
           {cityName && (
             <div className="ml-12">
-              <div className=" border rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
+              <div className="rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
                 <CurrentWeather coordinates={coordinates} />
                 <ForecastWeather coordinates={coordinates} />
               </div>
