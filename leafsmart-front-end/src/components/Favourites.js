@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import FavouritesCard from "./FavouritesCard";
 import { useAuth } from "../contexts/AuthContext";
 import { MdFavorite } from "react-icons/md";
-
-import FavouritesCard from "./FavouritesCard";
 import SideBarIcon from "./buttons/SideBarIcon";
 
 const Favourites = () => {
