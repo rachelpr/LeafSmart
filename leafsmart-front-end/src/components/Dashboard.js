@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
 import Nav from "./Nav";
 import Events from "./Events";
 import CityFacts from "./CityFacts";
-import CurrentWeather from './CurrentWeather';
+import CurrentWeather from "./CurrentWeather";
 import QoLData from "./QoLData";
 import Search from "./Search";
-import ForecastWeather from './ForecastWeather';
-import AddFavourite from './buttons/AddFavourite';
+import ForecastWeather from "./ForecastWeather";
+import AddFavourite from "./buttons/AddFavourite";
 
 import "../styles/main.css";
 
@@ -26,7 +26,7 @@ const Dashboard = () => {
     setCityName(lowercasedCity);
     setCoordinates([lat, lon]);
     setGeonameId(geo);
-  }
+  };
 
   return (
     <main className="pl-44 pr-32">
@@ -35,19 +35,19 @@ const Dashboard = () => {
         <div className="flex p-8 w-100">
           <div>
             <div className="flex justify-between">
-            <Link to="#">
-              <AddFavourite
-                icon={<FaPlus size="40"/>}
-              />
-            </Link>
-            <Search onSearchChange={handleOnSearchChange}/>
+              <Link to="#">
+                <AddFavourite icon={<FaPlus size="40" />} />
+              </Link>
+              <Search onSearchChange={handleOnSearchChange} />
             </div>
             {cityName && <Events cityName={cityName} />}
           </div>
           {cityName && (
             <div className="ml-12">
-              <CurrentWeather coordinates={coordinates}/>
-              <ForecastWeather coordinates={coordinates} />
+              <div className=" border rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
+                <CurrentWeather coordinates={coordinates} />
+                <ForecastWeather coordinates={coordinates} />
+              </div>
               <CityFacts geonameId={geonameId} />
               <QoLData cityName={cityName} />
             </div>
@@ -55,7 +55,7 @@ const Dashboard = () => {
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

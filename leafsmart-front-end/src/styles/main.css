@@ -698,6 +698,7 @@ html {
 }
 .w-10\/12{
   width: 83.333333%;
+<<<<<<< Updated upstream
 }
 .w-16{
   width: 4rem;
@@ -710,10 +711,24 @@ html {
 }
 .w-14{
   width: 3.5rem;
+=======
 }
-.w-2\/3{
-  width: 66.666667%;
+.w-16{
+  width: 4rem;
 }
+.w-20{
+  width: 5rem;
+>>>>>>> Stashed changes
+}
+.w-11{
+  width: 2.75rem;
+}
+<<<<<<< Updated upstream
+=======
+.w-14{
+  width: 3.5rem;
+}
+>>>>>>> Stashed changes
 .table-auto{
   table-layout: auto;
 }

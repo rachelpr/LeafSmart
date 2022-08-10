@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 
 import axios from "axios";
-import "./CurrentWeather.css";
 import ForecastWeatherCard from "./ForecastWeatherCard";
 import { forecastDays } from "../helpers/selectors";
 
@@ -51,13 +50,13 @@ const ForecastWeather = (props) => {
     });
 
   return (
-      <section>
+      <section className="">
         {isLoading && (
           /* put a fun spinner */
           <h1>is Loading?</h1>
         )}
         {forecastWeather.length > 0 && (
-          <ul className="flex">{forecastDaysArr}</ul>
+          <ul className="flex justify-between text-White">{forecastDaysArr}</ul>
         )}
       </section>
   );
