@@ -474,12 +474,6 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
-.mt-2{
-  margin-top: 0.5rem;
-}
-.mt-16{
-  margin-top: 4rem;
-}
 .mb-8{
   margin-bottom: 2rem;
 }
@@ -492,43 +486,50 @@ html {
 .mb-6{
   margin-bottom: 1.5rem;
 }
+.mt-2{
+  margin-top: 0.5rem;
+}
+.mt-6{
+  margin-top: 1.5rem;
+}
+.mt-12{
+  margin-top: 3rem;
+}
+.mt-24{
+  margin-top: 6rem;
+}
+.mb-2{
+  margin-bottom: 0.5rem;
+}
 .block{
   display: block;
 }
 .inline{
   display: inline;
 }
-.flex{
-  display: flex;
-}
 .table{
   display: table;
+}
+.grid{
+  display: grid;
 }
 .hidden{
   display: none;
 }
-.h-full{
-  height: 100%;
+.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.items-center{
-  align-items: center;
+.grid-rows-3{
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.gap-4{
+  gap: 1rem;
 }
 .rounded-lg{
   border-radius: 0.5rem;
 }
-.rounded-full{
-  border-radius: 9999px;
-}
 .border{
   border-width: 1px;
-}
-.bg-Isabelline{
-  --tw-bg-opacity: 1;
-  background-color: rgb(242 233 228 / var(--tw-bg-opacity));
-}
-.bg-\[\#7c9bdb\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(124 155 219 / var(--tw-bg-opacity));
 }
 .p-4{
   padding: 1rem;
@@ -541,30 +542,19 @@ html {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.px-16{
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
 .pt-7{
   padding-top: 1.75rem;
 }
 .text-center{
   text-align: center;
 }
-.text-9xl{
-  font-size: 8rem;
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-7xl{
+  font-size: 4.5rem;
   line-height: 1;
-}
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
-}
-.text-base{
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-.font-black{
-  font-weight: 900;
 }
 .text-Independence{
   --tw-text-opacity: 1;
