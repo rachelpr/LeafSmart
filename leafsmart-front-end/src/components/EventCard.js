@@ -16,7 +16,7 @@ export default function EventCard(props) {
             alt={name}
           />
         </td>
-        <td classNam="text-sm text-Independence font-light px-2 py-2 whitespace-nowrap">
+        <td className="text-sm text-Independence font-light px-2 py-2 whitespace-nowrap">
           <span>{currentDate}</span>
         </td>
         <td className="text-center text-Independence font-light px-2 py-2 whitespace-wrap">
