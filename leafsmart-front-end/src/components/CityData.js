@@ -1,5 +1,12 @@
 const CityData = (props) => {
-  return "City Data Connection Test Worked!";
+  const { cityName, geonameId } = props;
+
+  return (
+    <>
+      <p>{cityName}</p>
+      <p>{geonameId}</p>
+    </>
+  );
 };
 
 export default CityData;
