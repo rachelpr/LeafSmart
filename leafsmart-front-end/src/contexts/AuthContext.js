@@ -11,6 +11,7 @@ function useAuth() {
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [favourites, setFavourites] = useState([])
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
@@ -46,8 +47,24 @@ const AuthProvider = ({ children }) => {
     setAuth(false);
   }
 
+  function returnFavourites() {
+    axios
+      .post("/favourites", {
+        user_id: currentUser.id,
+      })
+      .then((res) => {
+        const data = res.data;
+        setFavourites(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   const value = {
+    favourites,
     currentUser,
+    returnFavourites,
     login,
     logout,
     token,

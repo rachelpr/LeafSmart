@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { IoLogInSharp } from "react-icons/io5";
+import SideBarIcon from "./buttons/SideBarIcon";
 
 
 export default function LogIn(props) {
@@ -16,11 +17,6 @@ export default function LogIn(props) {
     setOpen(!open);
   };
 
-  const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
-    <div className="sidebar-icon group">
-      {icon}
-    </div>
-  );
   return (
     <>
     <div>
