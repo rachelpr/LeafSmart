@@ -15,6 +15,7 @@ const db = knex({
 });
 
 const favRoute = require("./routes/favouriteRouter");
+const savFavRoute = require('./routes/saveFavouritesRouter')
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use("/favourites", favRoute(db));
+app.use("/save", savFavRoute(db));
 
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
