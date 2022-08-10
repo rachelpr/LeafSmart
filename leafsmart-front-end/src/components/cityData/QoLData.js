@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-import { filterQoL } from "../helpers/selectors";
-import { kebabCase } from "../helpers/formats";
+import { filterQoL } from "../../helpers/selectors";
+import { kebabCase } from "../../helpers/formats";
 
 import QoLDataCard from "./QoLDataCard";
 

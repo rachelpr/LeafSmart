@@ -4,12 +4,11 @@ import { FaPlus } from "react-icons/fa";
 
 import Nav from "./Nav";
 import Events from "./Events";
-import CityFacts from "./CityFacts";
-import CurrentWeather from "./CurrentWeather";
-import QoLData from "./QoLData";
-import Search from "./Search";
-import ForecastWeather from "./ForecastWeather";
 import AddFavourite from "./buttons/AddFavourite";
+import CurrentWeather from './CurrentWeather';
+import Search from "./Search";
+import ForecastWeather from './ForecastWeather';
+import CityData from './CityData';
 
 import "../styles/main.css";
 
@@ -48,8 +47,7 @@ const Dashboard = () => {
                 <CurrentWeather coordinates={coordinates} />
                 <ForecastWeather coordinates={coordinates} />
               </div>
-              <CityFacts geonameId={geonameId} />
-              <QoLData cityName={cityName} />
+              <CityData geonameId={geonameId} cityName={cityName}/>
             </div>
           )}
         </div>

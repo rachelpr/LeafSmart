@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import NumberFormat from "react-number-format";
 import axios from "axios"
 
@@ -9,7 +9,7 @@ const CityFacts = (props) => {
   const [city, setCity] = useState([]);
 
   useEffect(() => {
-    if ( geonameId) {
+    if (geonameId) {
       axios.get(`${apiUrl}geonameid:${geonameId}`)
       .then((res)=>{
         setCity(res.data);
