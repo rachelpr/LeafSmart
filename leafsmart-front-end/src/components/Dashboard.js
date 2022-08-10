@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
-import Nav from "./Nav";
-import Events from "./Events";
 import AddFavourite from "./buttons/AddFavourite";
-import CurrentWeather from './CurrentWeather';
+import CityData from "./CityData";
+import CurrentWeather from "./CurrentWeather";
+import Events from "./Events";
+import ForecastWeather from "./ForecastWeather";
+import Nav from "./Nav";
 import Search from "./Search";
-import ForecastWeather from './ForecastWeather';
-import CityData from './CityData';
 
 import "../styles/main.css";
 
