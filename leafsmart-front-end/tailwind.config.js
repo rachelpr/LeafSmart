@@ -19,7 +19,12 @@ module.exports = {
         500 : "#ef4444"
       }
     },
-    extend: {},
+    extend: {
+      maxHeight: {
+        '128': '28rem',
+        '1/4': '25%',
+      }
+    },
   },
   plugins: [],
 }

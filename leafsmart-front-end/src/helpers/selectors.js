@@ -107,13 +107,13 @@ export function filterQoL(slugScore) {
 // helper function to get the day of the week for the forecast
 export function forecastDays() {
   const weekdays = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun",
   ];
   const dayOfTheWeek = new Date().getDay();
   return weekdays
