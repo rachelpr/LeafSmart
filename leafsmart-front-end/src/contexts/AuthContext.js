@@ -61,12 +61,29 @@ const AuthProvider = ({ children }) => {
       });
   }
 
+  function saveFavourites(geoname_id, display_name, city_name) {
+    axios
+      .post("/save", {
+        user_id: currentUser.id,
+        geoname_id: geoname_id, 
+        display_name: display_name, 
+        city_name: city_name
+      })
+      .then(() => {
+        console.log("sent to backend!")
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
   const value = {
     favourites,
     currentUser,
     returnFavourites,
     login,
     logout,
+    saveFavourites,
     token,
   };
 
