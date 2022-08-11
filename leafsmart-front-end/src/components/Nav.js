@@ -17,7 +17,7 @@ const Nav = () => {
     <nav className="fixed top-0 left-0 h-screen w-44 flex flex-col bg-White/50  dark:bg-Independence shadow-lg justify-between">
       <div className="pt-8">
         <Link to="/">
-          <HomeIcon icon={<RiAncientPavilionFill size="42" />} />
+          <HomeIcon icon={<img src="LeafSmartLight.png" />} />
         </Link>
         {currentUser ? <Logout /> : <LogIn />}
         <Favourites />
