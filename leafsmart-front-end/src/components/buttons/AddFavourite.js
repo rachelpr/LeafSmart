@@ -2,6 +2,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useEffect, useState } from "react";
 
 const AddFavourite = (props) => {
+  const { geonameId, cName } = props
   const [geoID, setGeoID] = useState(null)
   const [displayName, setDisplayName] = useState("")
   const [cityName, setCityName] = useState("")
@@ -9,10 +10,10 @@ const AddFavourite = (props) => {
   const { saveFavourites } = useAuth();
 
   useEffect(() => {
-    setGeoID(props.geonameId);
-    setDisplayName(props.cName);
-    setCityName(props.cName);
-  }, [props]);
+    setGeoID(geonameId);
+    setDisplayName(cName);
+    setCityName(cName);
+  }, [geonameId, cName]);
 
   const handleClick = (e) => {
     e.preventDefault();
