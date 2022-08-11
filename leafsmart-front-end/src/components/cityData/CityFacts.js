@@ -8,7 +8,7 @@ const CityFacts = (props) => {
   const { cityName, cityPop, cityDesc } = props;
 
   return (
-    <section className="bg-Independence rounded-3xl text-Isabelline p-8">
+    <section className="bg-Independence rounded-3xl text-Isabelline p-8 max-w-lg">
       { cityName && (
         <>
           <h2>{cityName}</h2>
@@ -18,7 +18,7 @@ const CityFacts = (props) => {
             thousandSeparator
             displayType="text"
           />
-          <p>{cityDesc}</p>
+          {cityDesc}
         </>
       )}
     </section>
