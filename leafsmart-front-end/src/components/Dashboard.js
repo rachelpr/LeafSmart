@@ -35,7 +35,7 @@ const Dashboard = () => {
           <div className="w-[58%]">
             <div className="flex justify-between">
               <Link to="#">
-                <AddFavourite icon={<FaPlus size="40" />} />
+                <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
               </Link>
               <Search onSearchChange={handleOnSearchChange} />
             </div>

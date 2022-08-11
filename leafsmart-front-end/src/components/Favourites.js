@@ -23,7 +23,7 @@ const Favourites = () => {
   };
 
   const favArr = favs.map((favs) => {
-    return <FavouritesCard key={favs.geoname_id} name={favs.city_name} />;
+    return <FavouritesCard key={favs.favourite_id} name={favs.city_name} />;
   });
 
   return (
