@@ -38,7 +38,7 @@ const CityData = (props) => {
         console.log("Error in QoL endpoint: ", err);
       })
     }
-  }, [geonameId, cityName]);
+  }, [geonameId, qolUrl, cityName, cityUrl]);
 
 
   return (
