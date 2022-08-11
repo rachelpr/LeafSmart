@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { RiAncientPavilionFill } from "react-icons/ri";
 import { FaComments, FaUsers } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -17,7 +16,7 @@ const Nav = () => {
     <nav className="fixed top-0 left-0 h-screen w-44 flex flex-col bg-White/50  dark:bg-Independence shadow-lg justify-between">
       <div className="pt-8">
         <Link to="/">
-          <HomeIcon icon={<img src="LeafSmartLight.png" />} />
+          <HomeIcon icon={<img src="LeafSmartLight.png" alt="LeafSmart Branding icon"/>} />
         </Link>
         {currentUser ? <Logout /> : <LogIn />}
         <Favourites />
