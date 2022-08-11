@@ -5,32 +5,20 @@ import axios from "axios"
 const apiUrl = process.env.REACT_APP_TELEPORT_CITYINFO_ENDPOINT;
 
 const CityFacts = (props) => {
-  const { geonameId } = props;
-  const [city, setCity] = useState([]);
-
-  useEffect(() => {
-    if (geonameId) {
-      axios.get(`${apiUrl}geonameid:${geonameId}`)
-      .then((res)=>{
-        setCity(res.data);
-      })
-      .catch((err)=>{
-        console.log(err)
-      })
-    }
-  }, [geonameId]);
+  const { cityName, cityPop, cityDesc } = props;
 
   return (
-    <section className="bg-Independence rounded-lg text-Isabelline p-8">
-      { geonameId && (
+    <section className="bg-Independence rounded-3xl text-Isabelline p-8">
+      { cityName && (
         <>
-          <h1>{city.name}</h1>
-          <h2 className="inline">Population: </h2>
+          <h2>{cityName}</h2>
+          <p className="inline">Population: </p>
           <NumberFormat
-            value={city.population}
+            value={cityPop}
             thousandSeparator
             displayType="text"
           />
+          <p>{cityDesc}</p>
         </>
       )}
     </section>
