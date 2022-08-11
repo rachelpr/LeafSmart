@@ -66,7 +66,7 @@ const Weather = (props) => {
         <>
           <svg
             aria-hidden="true"
-            className="mr-2 w-8 h-8 text-Isabelline animate-spin dark:text-gray-600 fill-Independence"
+            className="mr-2 w-7 h-7 text-Isabelline animate-spin dark:text-gray-600 fill-Independence"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ const Weather = (props) => {
               fill="currentFill"
             />
           </svg>
-          <span className="sr-only">Loading...</span>
+          {/* <span className="sr-only">Loading...</span> */}
         </>
       )}
       {Object.keys(currentWeather).length > 0 && !isLoading && (
