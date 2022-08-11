@@ -5,17 +5,17 @@ const CityFacts = (props) => {
   const { cityName, cityPop, cityDesc } = props;
 
   return (
-    <section className="bg-Independence rounded-3xl text-Isabelline p-8 max-w-lg">
+    <section>
       { cityName && (
         <>
-          <h2>{cityName}</h2>
+          <h2 className="text-2xl font-bold">{cityName}</h2>
           <p className="inline">Population: </p>
           <NumberFormat
             value={cityPop}
             thousandSeparator
             displayType="text"
           />
-          {Parser(cityDesc)}
+          <article className="mt-4">{Parser(cityDesc)}</article>
         </>
       )}
     </section>
