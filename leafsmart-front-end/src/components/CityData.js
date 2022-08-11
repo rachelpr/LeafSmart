@@ -3,6 +3,7 @@ import axios from "axios";
 import { kebabCase } from "../helpers/formats";
 
 import CityFacts from "./cityData/CityFacts";
+import QoLData from "./cityData/QoLData";
 
 const CityData = (props) => {
   const { cityName, geonameId } = props;
@@ -28,11 +29,12 @@ const CityData = (props) => {
       // get Teleport QoL detailed data
       axios.get(`${qolUrl}slug:${kebabCase(cityName)}/scores/`)
       .then((res) => {
-        console.log("QoL res: ", res);
         setDescription(res.data.summary);
         setSlugScores(res.data.categories);
       })
       .catch(err => {
+        setDescription("");
+        setSlugScores([]);
         console.log("Error in QoL endpoint: ", err);
       })
     }
@@ -40,11 +42,14 @@ const CityData = (props) => {
 
 
   return (
+    <div className="bg-White rounded-3xl text-Independence p-8">
       <CityFacts
-        cityName={city.full_name}
+        cityName={city.name}
         cityPop={city.population}
         cityDesc={description}
       />
+      <QoLData slugScores={slugScores} />
+    </div>
   );
 };
 
