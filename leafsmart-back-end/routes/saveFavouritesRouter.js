@@ -7,11 +7,13 @@ module.exports = (db) => {
     const { user_id, geoname_id, display_name, city_name } = req.body;
     db.raw(
       `INSERT INTO favourites (user_id, geoname_id, display_name, city_name) 
-      values(?, ?, ?, ?)`,
+      values(?, ?, ?, ?)
+      RETURNING *`,
       [`${user_id}`, `${geoname_id}`, `${display_name}`, `${city_name}`]
     )
-    .then((res) => {
+    .then((result) => {
       console.log("Favourites Submitted!");
+      return res.json(result.rows);
     })
     .catch((err) => {
       console.log(err);
