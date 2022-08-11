@@ -5,6 +5,7 @@ module.exports = (db) => {
   router.post('/', (req, res) => {
     const { user_id } = req.body;
     db.select(
+      'favourite_id',
       'geoname_id',
       'display_name',
       'city_name'
