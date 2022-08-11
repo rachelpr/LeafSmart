@@ -5,10 +5,9 @@ import { FaPlus } from "react-icons/fa";
 import Nav from "./Nav";
 import Events from "./Events";
 import CityFacts from "./CityFacts";
-import CurrentWeather from "./CurrentWeather";
 import QoLData from "./QoLData";
 import Search from "./Search";
-import ForecastWeather from "./ForecastWeather";
+import Weather from "./Weather";
 import AddFavourite from "./buttons/AddFavourite";
 
 import "../styles/main.css";
@@ -44,9 +43,8 @@ const Dashboard = () => {
           </div>
           {cityName && (
             <div className="ml-12">
-              <div className=" border rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
-                <CurrentWeather coordinates={coordinates} />
-                <ForecastWeather coordinates={coordinates} />
+              <div className="min-h-[180px] h-180 rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
+                <Weather coordinates={coordinates} />
               </div>
               <CityFacts geonameId={geonameId} />
               <QoLData cityName={cityName} />
