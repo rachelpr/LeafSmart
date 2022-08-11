@@ -29,6 +29,7 @@ const Events = (props) => {
           setEvents(data);
         })
         .catch((err) => {
+          setEvents([]);
           console.log(err);
         });
     }
@@ -50,7 +51,7 @@ const Events = (props) => {
 
 
 return (
-  <section className="mx-auto w-11/12">
+  <section className="mx-auto w-full">
     <div className="flex flex-col pt-8 h-screen">
       <div className="overflow-y-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 inline-block sm:px-2 lg:px-4">

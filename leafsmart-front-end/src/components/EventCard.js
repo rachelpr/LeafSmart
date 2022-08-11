@@ -9,7 +9,7 @@ export default function EventCard(props) {
   return (
     <>
       <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-        <td class="whitespace-nowrap text-sm font-medium">
+        <td className="whitespace-nowrap text-sm font-medium">
           <img
             className="h-auto w-64 px-6 py-4 whitespace-nowrap"
             src={image}

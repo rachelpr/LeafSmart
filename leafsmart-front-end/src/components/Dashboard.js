@@ -2,14 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
-import Nav from "./Nav";
-import Events from "./Events";
-import CityFacts from "./CityFacts";
-import CurrentWeather from "./CurrentWeather";
-import QoLData from "./QoLData";
-import Search from "./Search";
-import ForecastWeather from "./ForecastWeather";
 import AddFavourite from "./buttons/AddFavourite";
+import CityData from "./CityData";
+import CurrentWeather from "./CurrentWeather";
+import Events from "./Events";
+import ForecastWeather from "./ForecastWeather";
+import Nav from "./Nav";
+import Search from "./Search";
 
 import "../styles/main.css";
 
@@ -31,9 +30,9 @@ const Dashboard = () => {
   return (
     <main className="pl-44 pr-32">
       <Nav />
-      <section className="bg-Isabelline py-5">
-        <div className="flex p-8 w-100">
-          <div>
+      <section className="bg-Isabelline py-5 min-h-screen">
+        <div className="flex p-8 justify-between">
+          <div className="w-[58%]">
             <div className="flex justify-between">
               <Link to="#">
                 <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
@@ -43,13 +42,12 @@ const Dashboard = () => {
             {cityName && <Events cityName={cityName} />}
           </div>
           {cityName && (
-            <div className="ml-12">
-              <div className=" border rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
+            <div className="w-[38%]">
+              <div className="rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
                 <CurrentWeather coordinates={coordinates} />
                 <ForecastWeather coordinates={coordinates} />
               </div>
-              <CityFacts geonameId={geonameId} />
-              <QoLData cityName={cityName} />
+              <CityData geonameId={geonameId} cityName={cityName}/>
             </div>
           )}
         </div>
