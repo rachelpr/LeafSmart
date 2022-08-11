@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
 import NumberFormat from "react-number-format";
-import axios from "axios"
-
-const apiUrl = process.env.REACT_APP_TELEPORT_CITYINFO_ENDPOINT;
+import Parser from "html-react-parser";
 
 const CityFacts = (props) => {
   const { cityName, cityPop, cityDesc } = props;
@@ -18,7 +15,7 @@ const CityFacts = (props) => {
             thousandSeparator
             displayType="text"
           />
-          {cityDesc}
+          {Parser(cityDesc)}
         </>
       )}
     </section>
