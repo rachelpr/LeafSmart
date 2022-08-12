@@ -15,7 +15,6 @@ import "../styles/main.css";
 const Dashboard = () => {
   const [searchParams] = useSearchParams();
   const savedSearch = searchParams.get("searchKeyword");
-  console.log("SavedSearch: ", savedSearch);
 
   const [cityName, setCityName] = useState(savedSearch || null);
   const [coordinates, setCoordinates] = useState([]);
