@@ -13,7 +13,6 @@ const CurrentWeather = (props) => {
 
   useEffect(() => {
     if (coordinates.length > 0) {
-      console.log(coordinates);
       const [lat, lon] = coordinates;
 
       // Weatherbit API Endpoint
@@ -25,7 +24,6 @@ const CurrentWeather = (props) => {
           const data = res.data["data"][0];
           setCurrentWeather(data);
           setIsLoading(false);
-          console.log(data);
         })
         .catch((err) => {
           console.log(err);
