@@ -26,6 +26,7 @@ app.use(express.json());
 // CORS implemented so that we don't get errors when trying to access the server from a different server location
 app.use(cors());
 
+app.use("/register", index)
 app.use("/login", index);
 app.use("/favourites", favRoute(db));
 app.use("/save", savFavRoute(db));
