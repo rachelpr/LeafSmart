@@ -24,6 +24,23 @@ const AuthProvider = ({ children }) => {
     }
   }, [auth]);
 
+  function register(email, first_name, last_name, password) {
+    axios
+    .post("http://localhost:3001/register/auth", {
+      email: email,
+      first_name: first_name,
+      last_name: last_name,
+      password: password
+    })
+    .then((res) => {
+      const data = res.data;
+      setFavourites(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   function login(email, password) {
     const REQUSET_URL = "http://localhost:3001/login/auth";
 
@@ -96,6 +113,7 @@ const AuthProvider = ({ children }) => {
   const value = {
     favourites,
     currentUser,
+    register,
     returnFavourites,
     login,
     logout,

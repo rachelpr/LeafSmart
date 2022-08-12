@@ -6,6 +6,7 @@ import { useAuth } from "../contexts/AuthContext";
 import Logout from "./Logout";
 import LogIn from "./LogIn";
 import Favourites from "./Favourites";
+import Register from "./Register"
 import SideBarIcon from "./buttons/SideBarIcon";
 import HomeIcon from "./buttons/HomeIcon";
 
@@ -20,6 +21,7 @@ const Nav = () => {
         </Link>
         {currentUser ? <Logout /> : <LogIn />}
         <Favourites />
+        <Register />
       </div>
       <div>
         <Link to="/Contact">
