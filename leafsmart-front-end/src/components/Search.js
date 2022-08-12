@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AsyncPaginate } from "react-select-async-paginate";
 import axios from 'axios';
 
@@ -6,12 +6,20 @@ const apiUser = process.env.REACT_APP_GEONAMES_USERNAME;
 const apiUrl = process.env.REACT_APP_GEONAMES_URL;
 
 const Search = (props) => {
-  const { onSearchChange } = props;
-  const [search, setSearch] = useState(null);
+  const { onSearchChange, value } = props;
+  const [search, setSearch] = useState(value);
+
+  useEffect(() => {
+    loadOptions(value)
+      .then((res) => {
+        setSearch(res.options[0]);
+        onSearchChange(res.options[0]);
+      });
+  }, [value]);
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
-    onSearchChange(searchData)
+    onSearchChange(searchData);
   }
 
   const loadOptions = (inputValue) => {
@@ -37,6 +45,7 @@ const Search = (props) => {
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
+
     />
   );
 }
