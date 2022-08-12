@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
+import { useSearchParams } from "react-router-dom";
 
 import Nav from "./Nav";
 import Events from "./Events";
@@ -12,7 +12,11 @@ import AddFavourite from "./buttons/AddFavourite";
 import "../styles/main.css";
 
 const Dashboard = () => {
-  const [cityName, setCityName] = useState(null);
+  const [searchParams] = useSearchParams();
+  const savedSearch = searchParams.get("searchKeyword");
+  console.log("SavedSearch: ", savedSearch);
+
+  const [cityName, setCityName] = useState(savedSearch || null);
   const [coordinates, setCoordinates] = useState([]);
   const [geonameId, setGeonameId] = useState(null);
 
@@ -33,10 +37,8 @@ const Dashboard = () => {
         <div className="flex p-8 justify-between">
           <div className="w-[58%]">
             <div className="flex justify-between">
-              <Link to="#">
-                <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
-              </Link>
-              <Search onSearchChange={handleOnSearchChange} />
+              <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
+              <Search value={savedSearch} onSearchChange={handleOnSearchChange} />
             </div>
             {cityName && <Events cityName={cityName} />}
           </div>
