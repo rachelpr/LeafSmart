@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const knex = require("knex");
 
 const db = knex({
@@ -23,6 +24,7 @@ function emailExists(email) {
 }
 
 const register = async (req, res) => {
+
   // destructre email and password
   const { email, password, first_name, last_name } = req.body;
   // is email or password don't exist send error
@@ -33,15 +35,13 @@ const register = async (req, res) => {
     if (emailExists(email) === true) {
       return res.status(400).send({ message: "This email exists" });
     }
-
-    bcrypt.hash(password, saltRounds).then(function (hash) {
-      const hashedPassword = hash;
+    const hashed = bcrypt.hashSync(password, saltRounds);
       const newUser = db
         .raw(
           `INSERT INTO users (email, first_name, last_name, password) 
         values(?, ?, ?, ?)
         RETURNING *`,
-          [`${email}`, `${first_name}`, `${last_name}`, `${hashedPassword}`]
+          [`${email}`, `${first_name}`, `${last_name}`, `${hashed}`]
         )
         .then(() => {
           return res
@@ -51,7 +51,6 @@ const register = async (req, res) => {
         .catch((err) => {
           console.log(err);
         });
-    });
   } catch (err) {
     return res
       .status(400)
@@ -66,19 +65,22 @@ const login = async (req, res) => {
   if (!email || !password) {
     return res.status(400).send({ message: "No email and password" });
   }
-
+  console.log("I tried to get here first!")
   try {
     // check for email in database
     db.select("user_id", "email", "first_name", "last_name", "password")
       .from("users")
       .where({ email: email })
       .then((data) => {
+        const user = data;
+        console.log("Then I went here!", user)
         // // if the user doesn't exist send error
-        if (!data[0].user_id) {
+      /*   if (!result[0].user_id) {
           return res.status(400).send({ message: "User does not exist" });
-        }
+        } */
 
         bcrypt.compare(password, hash).then(function (result) {
+          console.log("I have nodemade it here!");
           if (result !== true) {
             return res.status(400).send({ message: "Password is incorrect" });
           }
@@ -91,7 +93,7 @@ const login = async (req, res) => {
 
           // Generate a token with the payload and the secret
           const token = jwt.sign(payload, SECRET, { expiresIn: "10m" });
-
+          console.log("Now I am here!", payload);
           return res.send({ message: "Hey from login!", token });
         });
       });
