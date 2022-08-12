@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import FavouritesCard from "./FavouritesCard";
 import { useAuth } from "../contexts/AuthContext";
 import { MdFavorite } from "react-icons/md";
+import { Link } from "react-router-dom";
+
 import SideBarIcon from "./buttons/SideBarIcon";
+import FavouritesCard from "./FavouritesCard";
 
 const Favourites = () => {
   const [favs, setFavs] = useState([]);
@@ -23,7 +25,11 @@ const Favourites = () => {
   };
 
   const favArr = favs.map((favs) => {
-    return <FavouritesCard key={favs.favourite_id} name={favs.city_name} />;
+    return (
+      <Link to={{ pathname: "/", search: `?searchKeyword=${favs.city_name}` }} key={favs.favourite_id}>
+        <FavouritesCard name={favs.city_name} />
+      </Link>
+    );
   });
 
   return (
