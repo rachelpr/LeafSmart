@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 import Nav from "./Nav";
 import Events from "./Events";
@@ -12,6 +13,7 @@ import AddFavourite from "./buttons/AddFavourite";
 import "../styles/main.css";
 
 const Dashboard = () => {
+  const { currentUser } = useAuth();
   const [searchParams] = useSearchParams();
   const savedSearch = searchParams.get("searchKeyword");
 
@@ -42,8 +44,10 @@ const Dashboard = () => {
       <section className="bg-Isabelline py-5 min-h-screen">
         <div className="flex p-8 justify-between">
           <div className="w-[58%]">
-            <div className="flex justify-between">
-              <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
+            <div className="flex justify-end">
+              { currentUser && (
+                <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
+              )}
               <Search savedSearch={savedSearch} onSearchChange={handleOnSearchChange} />
             </div>
             {cityName && <Events cityName={cityName} />}
