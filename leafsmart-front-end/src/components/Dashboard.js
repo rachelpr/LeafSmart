@@ -37,7 +37,7 @@ const Dashboard = () => {
           <div className="w-[58%]">
             <div className="flex justify-between">
               <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
-              <Search value={savedSearch} onSearchChange={handleOnSearchChange} />
+              <Search savedSearch={savedSearch} onSearchChange={handleOnSearchChange} />
             </div>
             {cityName && <Events cityName={cityName} />}
           </div>

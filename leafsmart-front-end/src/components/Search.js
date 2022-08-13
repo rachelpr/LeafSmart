@@ -6,16 +6,16 @@ const apiUser = process.env.REACT_APP_GEONAMES_USERNAME;
 const apiUrl = process.env.REACT_APP_GEONAMES_URL;
 
 const Search = (props) => {
-  const { onSearchChange, value } = props;
-  const [search, setSearch] = useState(value);
+  const { onSearchChange, savedSearch } = props;
+  const [search, setSearch] = useState(savedSearch);
 
   useEffect(() => {
-    loadOptions(value)
+    loadOptions(savedSearch)
       .then((res) => {
         setSearch(res.options[0]);
         onSearchChange(res.options[0]);
       });
-  }, [value]);
+  }, [savedSearch]);
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
