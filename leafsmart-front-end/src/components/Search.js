@@ -23,6 +23,7 @@ const Search = (props) => {
       .catch((err) => {
         console.log("Error in Search: ", err);
       });
+      // eslint-disable-next-line
   }, [savedSearch]);
 
   const handleOnChange = (searchData) => {
