@@ -26,15 +26,14 @@ const AuthProvider = ({ children }) => {
 
   function register(email, first_name, last_name, password) {
     axios
-    .post("http://localhost:3001/register/auth", {
+    .post("http://localhost:3001/register/auth/register", {
       email: email,
       first_name: first_name,
       last_name: last_name,
       password: password
     })
     .then((res) => {
-      const data = res.data;
-      setFavourites(data);
+      console.log("user submitted to backend");
     })
     .catch((err) => {
       console.log(err);
@@ -42,7 +41,7 @@ const AuthProvider = ({ children }) => {
   }
 
   function login(email, password) {
-    const REQUSET_URL = "http://localhost:3001/login/auth";
+    const REQUSET_URL = "http://localhost:3001/login/auth/login";
 
     return axios
       .post(REQUSET_URL, { email, password })
