@@ -89,7 +89,6 @@ export default function LogIn(props) {
               <input
                 className="block"
                 type="text"
-                id="email"
                 autoComplete="off"
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -98,7 +97,6 @@ export default function LogIn(props) {
               <input
                 className="block"
                 type="password"
-                id="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
