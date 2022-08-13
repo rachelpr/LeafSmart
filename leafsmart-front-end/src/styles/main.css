@@ -613,6 +613,15 @@ body {
 .left-0{
   left: 0px;
 }
+.bottom-3{
+  bottom: 0.75rem;
+}
+.bottom-0{
+  bottom: 0px;
+}
+.right-0{
+  right: 0px;
+}
 .m-auto{
   margin: auto;
 }
@@ -656,6 +665,9 @@ body {
 .mt-8{
   margin-top: 2rem;
 }
+.mt-1{
+  margin-top: 0.25rem;
+}
 .block{
   display: block;
 }
@@ -670,6 +682,9 @@ body {
 }
 .table{
   display: table;
+}
+.grid{
+  display: grid;
 }
 .hidden{
   display: none;
@@ -736,6 +751,9 @@ body {
 .h-36{
   height: 9rem;
 }
+.h-32{
+  height: 8rem;
+}
 .min-h-screen{
   min-height: 100vh;
 }
@@ -792,6 +810,15 @@ body {
 .w-36{
   width: 9rem;
 }
+.w-32{
+  width: 8rem;
+}
+.w-80{
+  width: 20rem;
+}
+.w-56{
+  width: 14rem;
+}
 .table-auto{
   table-layout: auto;
 }
@@ -822,6 +849,12 @@ body {
 .cursor-pointer{
   cursor: pointer;
 }
+.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-rows-1{
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
 .flex-col{
   flex-direction: column;
 }
@@ -842,6 +875,12 @@ body {
 }
 .justify-between{
   justify-content: space-between;
+}
+.justify-items-start{
+  justify-items: start;
+}
+.gap-1{
+  gap: 0.25rem;
 }
 .justify-around{
   justify-content: space-around;
@@ -875,8 +914,13 @@ body {
 .rounded-full{
   border-radius: 9999px;
 }
+.rounded-xl{
+  border-radius: 0.75rem;
+}
+
 .border{
   border-width: 1px;
+}
 .rounded-b-2xl{
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
@@ -884,8 +928,17 @@ body {
 .border-2{
   border-width: 2px;
 }
+.border-4{
+  border-width: 4px;
+}
+.border{
+  border-width: 1px;
+}
 .border-b{
   border-bottom-width: 1px;
+}
+.border-double{
+  border-style: double;
 }
 .border-Zinc-300{
   --tw-border-opacity: 1;
@@ -964,6 +1017,14 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.px-1{
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.py-1{
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
 .pl-44{
   padding-left: 11rem;
 }
@@ -997,6 +1058,14 @@ body {
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-8xl{
+  font-size: 6rem;
+  line-height: 1;
+}
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 .font-medium{
   font-weight: 500;
