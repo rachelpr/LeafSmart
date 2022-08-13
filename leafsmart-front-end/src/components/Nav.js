@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaComments, FaUsers } from "react-icons/fa";
+import { RiContactsFill, RiInformationFill } from "react-icons/ri";
 import { useAuth } from "../contexts/AuthContext";
 
 import Logout from "./Logout";
@@ -23,10 +23,10 @@ const Nav = () => {
       </div>
       <div>
         <Link to="/Contact">
-          <SideBarIcon icon={<FaUsers size="32"/>} />
+          <SideBarIcon icon={<RiContactsFill size="32"/>} />
         </Link>
         <Link to="/About">
-          <SideBarIcon icon={<FaComments size="32"/>} />
+          <SideBarIcon icon={<RiInformationFill size="32"/>} />
         </Link>
       </div>
     </nav>
