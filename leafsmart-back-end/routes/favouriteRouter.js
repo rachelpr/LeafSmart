@@ -2,19 +2,21 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
-  router.post("/", (req, res) => {
+  router.post('/', (req, res) => {
     const { user_id } = req.body;
     db.select(
+      'favourite_id',
       'geoname_id',
       'display_name',
       'city_name'
     )
-    .from("favourites")
+    .distinctOn('city_name')
+    .from('favourites')
     .where({
       user_id: user_id
     })
     .then((result) => {
-      console.log("Res: ",result);
+      console.log('Res: ',result);
       return res.json(result);
     })
     .catch((err) => {

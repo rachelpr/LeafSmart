@@ -11,6 +11,7 @@ function useAuth() {
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [favourites, setFavourites] = useState([]);
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
@@ -20,12 +21,11 @@ const AuthProvider = ({ children }) => {
       const decoded = decode(token);
       setCurrentUser(decoded);
       setAuth(true);
-    };
+    }
   }, [auth]);
 
-
   function login(email, password) {
-    const REQUSET_URL = 'http://localhost:3001/login/auth';
+    const REQUSET_URL = "http://localhost:3001/login/auth";
 
     return axios
       .post(REQUSET_URL, { email, password })
@@ -46,14 +46,65 @@ const AuthProvider = ({ children }) => {
     setAuth(false);
   }
 
+  function returnFavourites() {
+    axios
+      .post("/favourites", {
+        user_id: currentUser.id,
+      })
+      .then((res) => {
+        const data = res.data;
+        setFavourites(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function saveFavourites(geoname_id, display_name, city_name) {
+    axios
+      .post("/save", {
+        user_id: currentUser.id,
+        geoname_id: geoname_id,
+        display_name: display_name,
+        city_name: city_name,
+      })
+      .then((result) => {
+        const favs = [...favourites]
+        favs.push(result.data[0])
+        setFavourites(favs);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
+  function deleteFavourites(favourite) {
+    axios
+      .post("/delete", {
+        user_id: currentUser.id,
+        city_name: favourite,
+      })
+      .then((result) => {
+        const favs = favourites.filter(favourite => favourite.city_name !== result.data[0].city_name)
+       setFavourites(favs);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
   const value = {
+    favourites,
     currentUser,
+    returnFavourites,
     login,
     logout,
+    saveFavourites,
+    deleteFavourites,
     token,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
 export { useAuth, AuthProvider };
