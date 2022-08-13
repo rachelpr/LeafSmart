@@ -24,30 +24,25 @@ function emailExists(email) {
 }
 
 const register = async (req, res) => {
-  console.log("here first!");
   // destructre email and password
   const { email, password, first_name, last_name } = req.body;
   // is email or password don't exist send error
   if (!email || !password) {
     return res.status(400).send({ message: "No email or password" });
   }
-  console.log("here second!");
   try {
     if (emailExists(email) === true) {
       return res.status(400).send({ message: "This email exists" });
     }
-    console.log("here third!");
-    bcrypt.hash(password, saltRounds)
-      .then((hash) => {
-        db
-        .raw(
-          `INSERT INTO users (email, first_name, last_name, password) 
+    bcrypt.hash(password, saltRounds).then((hash) => {
+      db.raw(
+        `INSERT INTO users (email, first_name, last_name, password) 
         values(?, ?, ?, ?)
         RETURNING users`,
-          [`${email}`, `${first_name}`, `${last_name}`, `${hash}`]
-        )
+        [`${email}`, `${first_name}`, `${last_name}`, `${hash}`]
+      )
         .then((data) => {
-          console.log("res: ", data.rows[0])
+          console.log("res: ", data.rows[0]);
         })
         .catch((err) => {
           console.log(err);
