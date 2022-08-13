@@ -7,11 +7,11 @@ export default function ForecastWeatherCard(props) {
   };
 //console.log(props)
   return (
-    <li className="p-2">
+    <li className="p-2 flex flex-col items-center  ">
       <img className="h-10 w-10 mb-1" alt="daily weather" src={`/icons/${props.icon}.svg`} />
       {/* <p className="text-xs">{props.description}</p> */}
-      <p className="text-xs">{formatTemp(props.temp)}°C</p>
-      <p className="text-xs">{props.day}</p>
+      <p className="text-s">{formatTemp(props.temp)}°C</p>
+      <p className="text-s">{props.day}</p>
     </li>
   );
 }

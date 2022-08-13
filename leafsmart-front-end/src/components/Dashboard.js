@@ -2,13 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
-import AddFavourite from "./buttons/AddFavourite";
-import CityData from "./CityData";
-import CurrentWeather from "./CurrentWeather";
-import Events from "./Events";
-import ForecastWeather from "./ForecastWeather";
 import Nav from "./Nav";
+import Events from "./Events";
+import CityData from "./CityData";
 import Search from "./Search";
+import Weather from "./Weather";
+import AddFavourite from "./buttons/AddFavourite";
 
 import "../styles/main.css";
 
@@ -43,9 +42,8 @@ const Dashboard = () => {
           </div>
           {cityName && (
             <div className="w-[38%]">
-              <div className="rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
-                <CurrentWeather coordinates={coordinates} />
-                <ForecastWeather coordinates={coordinates} />
+              <div className="min-h-[180px] h-180 rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
+                <Weather coordinates={coordinates} />
               </div>
               <CityData geonameId={geonameId} cityName={cityName}/>
             </div>
