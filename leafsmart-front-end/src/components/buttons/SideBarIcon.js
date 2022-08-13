@@ -1,7 +1,7 @@
 const SideBarIcon = (props) => {
   const { icon } = props;
   return (
-    <div className="sidebar-icon group">{icon}</div>
+    <div className="sidebar-icon group text-SpaceCadet">{icon}</div>
   );
 }
 
