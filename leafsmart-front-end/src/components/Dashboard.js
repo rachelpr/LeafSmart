@@ -20,13 +20,20 @@ const Dashboard = () => {
   const [geonameId, setGeonameId] = useState(null);
 
   const handleOnSearchChange = (searchData) => {
-    //sample searchData: {value: '5946768 53.55014 -113.46871', label: 'Edmonton, Alberta'}
-    const lowercasedCity = searchData.label.split(",")[0].toLowerCase();
-    const [geo, lat, lon] = searchData.value.split(" ");
+    if (searchData) {
+      //sample searchData: {value: '5946768 53.55014 -113.46871', label: 'Edmonton, Alberta'}
+      const lowercasedCity = searchData.label.split(",")[0].toLowerCase();
+      const [geo, lat, lon] = searchData.value.split(" ");
 
-    setCityName(lowercasedCity);
-    setCoordinates([lat, lon]);
-    setGeonameId(geo);
+      setCityName(lowercasedCity);
+      setCoordinates([lat, lon]);
+      setGeonameId(geo);
+    } else {
+      // clear dashboard
+      setCityName(null);
+      setCoordinates([]);
+      setGeonameId(null);
+    }
   };
 
   return (
