@@ -7,13 +7,21 @@ const apiUrl = process.env.REACT_APP_GEONAMES_URL;
 
 const Search = (props) => {
   const { onSearchChange, savedSearch } = props;
-  const [search, setSearch] = useState(savedSearch);
+  const [search, setSearch] = useState(savedSearch || null);
 
   useEffect(() => {
     loadOptions(savedSearch)
       .then((res) => {
-        setSearch(res.options[0]);
-        onSearchChange(res.options[0]);
+        if (res.options.length) {
+          setSearch(res.options[0]);
+          onSearchChange(res.options[0]);
+        } else {
+          setSearch(null);
+          onSearchChange(null);
+        }
+      })
+      .catch((err) => {
+        console.log("Error in Search: ", err);
       });
   }, [savedSearch]);
 
