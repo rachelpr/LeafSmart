@@ -1,5 +1,5 @@
-INSERT INTO favourites (user_id, geoname_id, display_name, city_name) 
+INSERT INTO favourites (user_id, geoname_id, display_name, city_name)
   VALUES
-    (1, 6324729, 'Halifax', 'Halifax'),
-    (1, 5946768, 'Edmonton', 'Edmonton'),
-    (2, 6167865, 'Toronto', 'Toronto');
+    (1, 6324729, 'halifax', 'halifax'),
+    (1, 5946768, 'edmonton', 'edmonton'),
+    (2, 6167865, 'toronto', 'toronto');

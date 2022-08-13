@@ -1,13 +1,10 @@
 import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { IoLogOutSharp } from "react-icons/io5";
+import SideBarIcon from "./buttons/SideBarIcon";
 
 const Logout = () => {
   const { logout, currentUser } = useAuth();
-
-  const SideBarIcon = ({ icon, text = "tooltip 💡" }) => (
-    <div className="sidebar-icon group">{icon}</div>
-  );
 
   return (
     <div>
