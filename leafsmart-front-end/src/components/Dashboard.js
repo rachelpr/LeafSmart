@@ -41,7 +41,7 @@ const Dashboard = () => {
             {cityName && <Events cityName={cityName} />}
           </div>
           {cityName && (
-            <div className="ml-12">
+            <div className="w-[38%]">
               <div className="min-h-[180px] h-180 rounded-3xl p-4 mb-8 mt-4 w-486 bg-gradient-to-r from-Independence to-HeliotropeGray">
                 <Weather coordinates={coordinates} />
               </div>

@@ -11,7 +11,7 @@ export default function ForecastWeatherCard(props) {
       <img className="h-10 w-10 mb-1" alt="daily weather" src={`/icons/${props.icon}.svg`} />
       {/* <p className="text-xs">{props.description}</p> */}
       <p className="text-s">{formatTemp(props.temp)}°C</p>
-      <p className="text-s tracking-[1.25em]">{props.day}</p>
+      <p className="text-s">{props.day}</p>
     </li>
   );
 }
