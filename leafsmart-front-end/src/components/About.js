@@ -21,10 +21,8 @@ const About = () => {
               The place to start thinking of travelling!
             </p>
             <p>
-              LeafSmart is a independantly built app focusing on the
-              concentration of city data for our users convenience. <br />
-              With the technology at their fingertips our users can find all
-              they need to know about the locations they aim to travel to.
+            LeafSmart focuses on providing city data for our users' convenience.
+             With technology at their fingertips, our users can find all they need to know about the locations they aim to travel to.
             </p>
           </div>
           <div className="text-center">
