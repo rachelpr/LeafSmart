@@ -19,6 +19,9 @@
 .env.test.local
 .env.production.local
 
+# tailwindcss output
+/src/styles/main.css
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
