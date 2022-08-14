@@ -45,13 +45,9 @@ const AddFavourite = (props) => {
   return (
     <>
       {cityArr.includes(cityName) ? (
-        <div
-          className="w-16 h-16 bg-gradient-to-r from-Independence to-HeliotropeGray text-White flex items-center justify-center rounded-2xl opacity-50"
-        >
-          <button type="button" disabled={true}>
+          <button className="w-16 h-16 bg-gradient-to-r from-Independence to-HeliotropeGray text-White flex items-center justify-center rounded-2xl opacity-50" type="button" disabled={true}>
             {icon}
           </button>
-        </div>
       ) : (
         <div
           className="w-16 h-16 bg-gradient-to-r from-Independence to-HeliotropeGray text-White flex items-center justify-center rounded-2xl hover:text-Isabelline hover:rounded-lg transition-all duration-300 ease-linear
