@@ -32,7 +32,7 @@ const Dashboard = () => {
       <section className="bg-Isabelline py-5 min-h-screen">
         <div className="flex p-8 justify-between">
           <div className="w-[58%]">
-            <div className="flex justify-between">
+            <div className="flex justify-around">
               <Link to="#">
                 <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
               </Link>
