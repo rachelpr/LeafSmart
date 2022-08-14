@@ -56,7 +56,9 @@ const Events = (props) => {
 return (
     <>
       { noEvents && (
-        <NoData widgetName={"upcoming events"}/>
+        <NoData
+          widgetName={"upcoming events"}
+        />
       )}
       <section className="mx-auto w-full">
         <div className="flex flex-col pt-8 h-screen">
