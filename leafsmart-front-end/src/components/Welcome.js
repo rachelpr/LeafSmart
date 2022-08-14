@@ -10,7 +10,7 @@ const Welcome = () => {
   ];
 
   return (
-    <section className="flex justify-around items-center mt-6 bg-Independence w-100 rounded-3xl p-16 font-bold text-Isabelline">
+    <section className="flex overflow-visible items-center mt-6 bg-Independence w-[172%] h-[35rem] rounded-3xl p-16 font-bold text-Isabelline">
       <img
         className="h-60"
         src="LeafSmartLight.png"
