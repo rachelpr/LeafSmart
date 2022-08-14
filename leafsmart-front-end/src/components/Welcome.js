@@ -3,25 +3,28 @@ import Typewriter from 'react-ts-typewriter';
 const Welcome = () => {
   const copyLoop = [
     "concerts",
+    "stats",
     "games",
-    "expos",
     "weather",
-    "stats"
+    "exhibits",
   ];
 
   return (
-    <section className="flex justify-evenly items-center mt-6 bg-White w-100 rounded-3xl p-16">
+    <section className="flex justify-around items-center mt-6 bg-White w-100 rounded-3xl p-16">
       <img
-        className="h-48 bg "        src="LeafSmartLight.png"
+        className="h-60 bg-gradient-to-r from-Independence to-HeliotropeGray rounded-3xl"
+        src="LeafSmartLight.png"
         alt="Leafsmart Logo"
       />
-      <div>
-        <p>Check the</p>
+      <div className="text-[3rem]">
+        <p>Smart dash for</p>
         <Typewriter
           text={copyLoop}
-          loop="true"
+          loop={true}
+          delay={4000}
+          random={42}
         />
-        <p>before you leaf!</p>
+        <p>before you <span className='italic font-bold text-HeliotropeGray'>leaf</span>!</p>
       </div>
     </section>
   );
