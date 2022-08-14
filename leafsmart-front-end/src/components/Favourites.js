@@ -9,7 +9,7 @@ const Favourites = () => {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState({});
 
-  const { currentUser, favourites, returnFavourites } = useAuth();
+  const { currentUser, favourites} = useAuth();
 
   useEffect(() => {
     setUser(currentUser);
@@ -18,7 +18,6 @@ const Favourites = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    returnFavourites()
     setOpen(!open);
   };
 
