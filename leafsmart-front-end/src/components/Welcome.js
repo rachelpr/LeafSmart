@@ -10,9 +10,9 @@ const Welcome = () => {
   ];
 
   return (
-    <section className="flex justify-around items-center mt-6 bg-White w-100 rounded-3xl p-16">
+    <section className="flex justify-around items-center mt-6 bg-Independence w-100 rounded-3xl p-16 font-bold text-Isabelline">
       <img
-        className="h-60 bg-gradient-to-r from-Independence to-HeliotropeGray rounded-3xl"
+        className="h-60"
         src="LeafSmartLight.png"
         alt="Leafsmart Logo"
       />
@@ -24,7 +24,7 @@ const Welcome = () => {
           delay={4000}
           random={42}
         />
-        <p>before you <span className='italic font-bold text-HeliotropeGray'>leaf</span>!</p>
+        <p>before you <span className='italic'>leaf</span>!</p>
       </div>
     </section>
   );
