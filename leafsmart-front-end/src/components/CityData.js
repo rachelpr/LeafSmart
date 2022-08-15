@@ -10,7 +10,7 @@ const CityData = (props) => {
 
   const [city, setCity] = useState({});
   const [slugScores, setSlugScores] = useState([]);
-  const [description, setDescription] = useState("");
+  const [image, setImage] = useState({});
 
   const cityUrl = process.env.REACT_APP_TELEPORT_CITYINFO_ENDPOINT;
   const qolUrl = process.env.REACT_APP_TELEPORT_QOL_ENDPOINT;
@@ -23,19 +23,28 @@ const CityData = (props) => {
         setCity(res.data);
       })
       .catch((err)=>{
-        console.log(err)
+        console.log("Error in City Facts endpoint: ", err);
       });
 
       // get Teleport QoL detailed data
       axios.get(`${qolUrl}slug:${kebabCase(cityName)}/scores/`)
       .then((res) => {
-        setDescription(res.data.summary);
         setSlugScores(res.data.categories);
       })
       .catch(err => {
-        setDescription("");
         setSlugScores([]);
         console.log("Error in QoL endpoint: ", err);
+      })
+
+      // get Teleport UrbanAreaImages resouce
+      axios.get(`${qolUrl}slug:${kebabCase(cityName)}/images/`)
+      .then((res) => {
+        const data = res.data.photos[0];
+        setImage({...data.image, attribution: {...data.attribution}});
+      })
+      .catch(err => {
+        setImage({});
+        console.log("Error in Image endpoint: ", err);
       })
     }
   }, [geonameId, qolUrl, cityName, cityUrl]);
@@ -44,9 +53,9 @@ const CityData = (props) => {
   return (
     <div className="bg-White rounded-3xl text-Independence p-8">
       <CityFacts
+        imageData={image}
         cityName={city.name}
         cityPop={city.population}
-        cityDesc={description}
       />
       <QoLData slugScores={slugScores} />
     </div>
