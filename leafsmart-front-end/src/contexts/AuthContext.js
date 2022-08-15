@@ -26,18 +26,18 @@ const AuthProvider = ({ children }) => {
 
   function register(email, first_name, last_name, password) {
     axios
-    .post("http://localhost:3001/register/auth/register", {
-      email: email,
-      first_name: first_name,
-      last_name: last_name,
-      password: password
-    })
-    .then((res) => {
-      console.log("user submitted to backend");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .post("http://localhost:3001/register/auth/register", {
+        email: email,
+        first_name: first_name,
+        last_name: last_name,
+        password: password,
+      })
+      .then((res) => {
+        console.log("user submitted to backend");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function login(email, password) {
@@ -85,8 +85,8 @@ const AuthProvider = ({ children }) => {
         city_name: city_name,
       })
       .then((result) => {
-        const favs = [...favourites]
-        favs.push(result.data[0])
+        const favs = [...favourites];
+        favs.push(result.data[0]);
         setFavourites(favs);
       })
       .catch((err) => {
@@ -101,8 +101,10 @@ const AuthProvider = ({ children }) => {
         city_name: favourite,
       })
       .then((result) => {
-        const favs = favourites.filter(favourite => favourite.city_name !== result.data[0].city_name)
-       setFavourites(favs);
+        const favs = favourites.filter(
+          (favourite) => favourite.city_name !== result.data[0].city_name
+        );
+        setFavourites(favs);
       })
       .catch((err) => {
         console.log(err.message);
