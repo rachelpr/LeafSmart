@@ -1,5 +1,4 @@
 const HomeIcon = (props) => {
-
   const { icon } = props;
   return (
     <div className="relative flex items-center justify-center

@@ -2,15 +2,12 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useEffect, useState } from "react";
 
 const AddFavourite = (props) => {
-  const { geonameId, cName } = props;
-  const [geoID, setGeoID] = useState(null);
-  const [displayName, setDisplayName] = useState("");
-  const [cityName, setCityName] = useState("");
-  const [action, setAction] = useState("");
-  const [favs, setFavs] = useState([]);
+  const { geonameId, cName } = props
+  const [geoID, setGeoID] = useState(null)
+  const [displayName, setDisplayName] = useState("")
+  const [cityName, setCityName] = useState("")
 
-  const { saveFavourites, currentUser, returnFavourites, favourites } =
-    useAuth();
+  const { saveFavourites } = useAuth();
 
   useEffect(() => {
     setGeoID(geonameId);
@@ -18,28 +15,10 @@ const AddFavourite = (props) => {
     setCityName(cName);
   }, [geonameId, cName]);
 
-  useEffect(() => {
-    if (currentUser) {
-      returnFavourites();
-      setFavs(favourites);
-    }
-  }, [currentUser, returnFavourites, favourites]);
-
   const handleClick = (e) => {
     e.preventDefault();
-    saveFavourites(geoID, displayName, cityName);
-    setAction(!action);
-  };
-
-  const checkFavs = (cityName, fav) => {
-    const cityNameArr = [];
-    fav.forEach((item) => {
-      cityNameArr.push(item.city_name);
-    });
-    return cityNameArr;
-  };
-
-  const cityArr = checkFavs(cityName, favs);
+    saveFavourites(geoID, displayName, cityName)
+  }
 
   const { icon } = props;
   return (
@@ -58,5 +37,6 @@ const AddFavourite = (props) => {
       )}
     </>
   );
-};
+}
+
 export default AddFavourite;
