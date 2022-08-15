@@ -8,14 +8,8 @@ const Logout = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center
-    h-12 w-12 mt-2 mb-2 mx-auto font-semibold italic shadow border-2 border-Zinc-100">
-        <p>
-          {currentUser.first_name}
-          <br />
-          {currentUser.last_name}
-        </p>
-      </div>
+      <p className="bg-White/75 w-28 font-bold
+     break-normal rounded-2xl text-center mx-auto mt-3 shadow-lg">Happy travels, {currentUser.first_name}!</p>
       <button className="logout-button" onClick={() => logout()}>
         <SideBarIcon icon={<IoLogOutSharp size="32" />} />
       </button>

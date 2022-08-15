@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AsyncPaginate } from "react-select-async-paginate";
 import axios from 'axios';
 
@@ -6,12 +6,29 @@ const apiUser = process.env.REACT_APP_GEONAMES_USERNAME;
 const apiUrl = process.env.REACT_APP_GEONAMES_URL;
 
 const Search = (props) => {
-  const { onSearchChange } = props;
-  const [search, setSearch] = useState(null);
+  const { onSearchChange, savedSearch } = props;
+  const [search, setSearch] = useState(savedSearch || null);
+
+  useEffect(() => {
+    loadOptions(savedSearch)
+      .then((res) => {
+        if (res.options.length) {
+          setSearch(res.options[0]);
+          onSearchChange(res.options[0]);
+        } else {
+          setSearch(null);
+          onSearchChange(null);
+        }
+      })
+      .catch((err) => {
+        console.log("Error in Search: ", err);
+      });
+      // eslint-disable-next-line
+  }, [savedSearch]);
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);
-    onSearchChange(searchData)
+    onSearchChange(searchData);
   }
 
   const loadOptions = (inputValue) => {
@@ -31,12 +48,13 @@ const Search = (props) => {
 
   return (
     <AsyncPaginate
-      className="w-10/12 mr-0 my-auto"
+      className="w-10/12 ml-12 mt-3"
       placeholder="Where to?"
       debounceTimeout={1000} //maximum 1 api call per second
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
+
     />
   );
 }
