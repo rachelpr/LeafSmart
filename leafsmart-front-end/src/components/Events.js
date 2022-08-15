@@ -65,7 +65,7 @@ return (
           <div className="overflow-y-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block sm:px-2 lg:px-4">
               <div className="overflow-y-hidden">
-                <table className="bg-White sm: table-auto">
+                <table className="bg-White sm: table-auto rounded-3xl">
                   <thead className="hidden bg-white border-b">
                     <tr>
                       <th>Event Details</th>
