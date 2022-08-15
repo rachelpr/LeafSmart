@@ -48,7 +48,7 @@ const Search = (props) => {
 
   return (
     <AsyncPaginate
-      className="w-10/12 ml-[5%] mt-3"
+      className="w-10/12 ml-12 mt-3"
       placeholder="Where to?"
       debounceTimeout={1000} //maximum 1 api call per second
       value={search}
