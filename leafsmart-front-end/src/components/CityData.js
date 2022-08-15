@@ -4,6 +4,7 @@ import { kebabCase } from "../helpers/formats";
 
 import CityFacts from "./cityData/CityFacts";
 import QoLData from "./cityData/QoLData";
+import NoData from "./NoData";
 
 const CityData = (props) => {
   const { cityName, geonameId } = props;
@@ -57,7 +58,8 @@ const CityData = (props) => {
         cityName={city.name}
         cityPop={city.population}
       />
-      <QoLData slugScores={slugScores} />
+      { slugScores.length > 0 && <QoLData slugScores={slugScores} />}
+      { !slugScores.length > 0 && <NoData widgetName={"quality of life stats"}/>}
     </div>
   );
 };

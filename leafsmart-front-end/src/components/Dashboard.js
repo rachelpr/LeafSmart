@@ -9,6 +9,7 @@ import CityData from "./CityData";
 import Search from "./Search";
 import Weather from "./Weather";
 import AddFavourite from "./buttons/AddFavourite";
+import Welcome from "./Welcome";
 
 import "../styles/main.css";
 
@@ -51,6 +52,9 @@ const Dashboard = () => {
               <Search savedSearch={savedSearch} onSearchChange={handleOnSearchChange} />
             </div>
             {cityName && <Events cityName={cityName} />}
+            {!cityName && (
+              <Welcome />
+            )}
           </div>
           {cityName && (
             <div className="w-[38%]">

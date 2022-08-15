@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import EventCard from "./EventCard";
+import NoData from "./NoData";
 
 // get current date
 const today = new Date();
@@ -16,6 +17,7 @@ const apiKey = process.env.REACT_APP_TICKETMASTER_EVENTS_KEY;
 const Events = (props) => {
   const { cityName } = props;
   const [events, setEvents] = useState([]);
+  const [noEvents, setNoEvents] = useState(true);
 
   //api call to pull in the events data from ticketmaster
   useEffect(() => {
@@ -27,16 +29,17 @@ const Events = (props) => {
         .then((res) => {
           const data = res.data["_embedded"]["events"];
           setEvents(data);
+          setNoEvents(false);
         })
         .catch((err) => {
           setEvents([]);
+          setNoEvents(true);
           console.log(err);
         });
     }
   }, [cityName]);
 
   //mapping the data from the events array to showcase via the events list item breakdown.
-  //BUG -- WHAT HAPPENS WHEN AN EMPTY ARRAY IS RETURNED?
   const eventsArr = events.map((events) => {
     return (
       <EventCard
@@ -51,27 +54,34 @@ const Events = (props) => {
 
 
 return (
-  <section className="mx-auto w-full">
-    <div className="flex flex-col pt-8 h-screen">
-      <div className="overflow-y-auto sm:-mx-6 lg:-mx-8">
-        <div className="py-2 inline-block sm:px-2 lg:px-4">
-          <div className="overflow-y-hidden">
-            <table className="bg-White sm: table-auto">
-              <thead className="hidden bg-white border-b">
-                <tr>
-                  <th>Event Details</th>
-                  <th>E</th>
-                  <th>G</th>
-                </tr>
-              </thead>
-              <tbody>{eventsArr}</tbody>
-            </table>
+    <>
+      { noEvents && (
+        <NoData
+          widgetName={"upcoming events"}
+        />
+      )}
+      <section className="mx-auto w-full">
+        <div className="flex flex-col pt-8 h-screen">
+          <div className="overflow-y-auto sm:-mx-6 lg:-mx-8">
+            <div className="py-2 inline-block sm:px-2 lg:px-4">
+              <div className="overflow-y-hidden">
+                <table className="bg-White sm: table-auto">
+                  <thead className="hidden bg-white border-b">
+                    <tr>
+                      <th>Event Details</th>
+                      <th>E</th>
+                      <th>G</th>
+                    </tr>
+                  </thead>
+                  <tbody>{eventsArr}</tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-);
+      </section>
+    </>
+  );
 };
 
 export default Events;
