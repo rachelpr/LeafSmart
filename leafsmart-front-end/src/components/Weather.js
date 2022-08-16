@@ -28,7 +28,7 @@ const Weather = (props) => {
 
       Promise.all([forecastPromise, currentWeatherPromise])
         .then((res) => {
-          console.log(res)
+          console.log(res);
           const forecastResponse = res[0];
           const forecastData = forecastResponse.data["data"];
           const currentWeatherResponse = res[1];
@@ -46,8 +46,7 @@ const Weather = (props) => {
   }, [coordinates, apiUrl, apiKey]);
 
   const renderForecast = (data) => {
-    return data.splice(1, 6)
-    .map((data, index) => {
+    return data.splice(1, 6).map((data, index) => {
       return (
         <ForecastWeatherCard
           key={index}
@@ -58,10 +57,10 @@ const Weather = (props) => {
         />
       );
     });
-  }
+  };
 
   return (
-    <section className="flex justify-center items-center">
+    <section className="flex flex-col justify-center items-center">
       {isLoading && (
         /* put a fun spinner */
         <>
@@ -83,29 +82,37 @@ const Weather = (props) => {
           </svg>
         </>
       )}
-      {Object.keys(currentWeather).length > 0 && !isLoading && (
-        <div className="w-11/12">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              {/* <p className="city">{currentWeather.city_name}</p> */}
-              <p className="text-White">
-                Today: {Math.round(currentWeather.temp)}°C
-              </p>
-            </div>
-            <div className="flex items-center">
-              <img
-                alt="weather"
-                className="w-14 h-14"
-                src={`/icons/${currentWeather.weather.icon}.svg`}
-              />
-              <p className="text-White">{currentWeather.weather.description}</p>
+      <>
+        {Object.keys(currentWeather).length > 0 && !isLoading && (
+          <div className="w-11/12">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                {/* <p className="city">{currentWeather.city_name}</p> */}
+                <p className="text-2xl text-White">
+                  Today: {Math.round(currentWeather.temp)}°C
+                </p>
+              </div>
+              <div className="flex items-center">
+                <img
+                  alt="weather"
+                  className="w-14 h-14"
+                  src={`/icons/${currentWeather.weather.icon}.svg`}
+                />
+                <p className="text-xl text-White">
+                  {currentWeather.weather.description}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      {forecastWeather.length > 0 && !isLoading && (
-        <ul className="flex justify-between pt-8 text-White">{forecastWeather}</ul>
-      )}
+        )}
+        {forecastWeather.length > 0 && !isLoading && (
+          <div className="w-full flex">
+            <ul className="w-full justify-around flex pt-8 text-White">
+              {forecastWeather}
+            </ul>
+          </div>
+        )}
+      </>
     </section>
   );
 };
