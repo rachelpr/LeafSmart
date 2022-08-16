@@ -1,77 +1,79 @@
-# Getting Started with Create React App in leafsmart-front-end
+# LeafSmart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LeafSmart is an app that lets user search for a city they plan on visiting. Upon searching, the main dashboard will show 3 widgets; for upcoming events, quality of life data, and weather for that city. 
+
+Users have the ability to add a particular city search to their favourites, as well as remove it. 
+
+The front of this project is built with React and Tailwind. The app makes requests to the Teleport API for city data, Ticketmaster API for event data, Weatherbit API for weather data, GeoNames API for city search data, and our own API that holds user information.
+
+## Screenshots
+
+### Welcome page
+!["Screenshot of welcome page"](./leafsmart-front-end/public/screenshots/welcome-page.png)
+
+### Typing a city
+!["Screenshot of typing a city"](./leafsmart-front-end/public/screenshots/typing-a-city.png)
+
+### Searched city
+!["Screenshot of searched city"](./leafsmart-front-end/public/screenshots/searched-city.png)
+
+### Empty results
+!["Screenshot of empty results"](./leafsmart-front-end/public/screenshots/empty-results.png)
+
+### Favourites
+!["Screenshot of favourites"](./leafsmart-front-end/public/screenshots/favourites.png)
+
+### Login pop-up
+!["Screenshot of login pop-up"](./leafsmart-front-end/public/screenshots/login.png)
+
+### Registration pop-up
+!["Screenshot of registration pop-up"](./leafsmart-front-end/public/screenshots/registration.png)
+
+### About page
+!["Screenshot of about page"](./leafsmart-front-end/public/screenshots/about.png)
+
+### Contact page
+!["Screenshot of contact page"](./leafsmart-front-end/public/screenshots/contact.png)
+
+## Dependencies
+- react
+- react-router-dom
+- react-scripts
+- axios
+- jwt
+- moment
+- react-icons
+- react-dom
+- react-ts-typewriter
+- react-select-async-paginate
+- react-number-format
+- tailwind
+
+## Setup
+
+1. Obtain API keys
+- Geonames:
+  - Register here and confirm email:http://www.geonames.org/login
+  - Enable Free web services here: https://www.geonames.org/manageaccount
+
+- Ticketmaster
+  - Sign up and documentation available here: https://developer.ticketmaster.com/
+
+- Weatherbit
+  - Sign up for an account here: https://www.weatherbit.io/account/create
+
+2. Update .env file with API keys
+
+3. Install dependencies with `npm install`.
+
+## Running Development Server
+
+1. In the project directory, you can run: `npm start`
+Open [http://localhost:3002](http://localhost:3002) to view it in your browser.
+
+## LeafSmart-back-end
 
 ## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# leafsmart-back-end notes
-
-## available scripts
 ### `npm start`
 This script runs the server with [nodemon](https://www.npmjs.com/package//nodemon)
 
