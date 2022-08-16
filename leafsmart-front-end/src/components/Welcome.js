@@ -4,20 +4,15 @@ const Welcome = () => {
   const copyLoop = [
     "concerts",
     "stats",
-    "games",
+    "sports",
     "weather",
     "exhibits",
   ];
 
   return (
-    <section className="flex overflow-visible items-center mt-6 bg-Independence w-[172%] h-[35rem] rounded-3xl p-16 font-bold text-Isabelline">
-      <img
-        className="h-60"
-        src="LeafSmartLight.png"
-        alt="Leafsmart Logo"
-      />
-      <div className="text-[3rem]">
-        <p>Smart dash for</p>
+    <section className="flex overflow-visible items-center justify-around mt-6 bg-gradient-to-r from-SpaceCadet to-Independence w-[172%] h-[35rem] rounded-3xl p-16 font-bold text-White tracking-[0.3em]">
+      <div className="text-[50px]">
+        <p className=''>Smart dashboard for</p>
         <Typewriter
           text={copyLoop}
           loop={true}
@@ -26,6 +21,11 @@ const Welcome = () => {
         />
         <p>before you <span className='italic'>leaf</span>!</p>
       </div>
+      <img
+        className="h-80"
+        src="LeafSmartLight.png"
+        alt="Leafsmart Logo"
+      />
     </section>
   );
 }

@@ -46,7 +46,7 @@ const Dashboard = () => {
         <div className="flex p-8 justify-between">
           <div className="w-[58%]">
             <div className="flex justify-end">
-              { currentUser && (
+              { currentUser && cityName && (
                 <AddFavourite icon={<FaPlus size="40" />} cName={cityName} geonameId={geonameId}/>
               )}
               <Search savedSearch={savedSearch} onSearchChange={handleOnSearchChange} />
