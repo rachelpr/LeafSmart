@@ -11,7 +11,7 @@ const Welcome = () => {
 
   return (
     <section className="flex overflow-visible items-center justify-around mt-6 bg-gradient-to-r from-SpaceCadet to-Independence w-[172%] h-[35rem] rounded-3xl p-16 font-bold text-White tracking-[0.3em]">
-      <div className="text-[5rem]">
+      <div className="text-[80px]">
         <p className=''>Smart dashboard for</p>
         <Typewriter
           text={copyLoop}
