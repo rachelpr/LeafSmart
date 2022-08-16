@@ -9,7 +9,7 @@ const About = () => {
   return (
     <main className="pl-44 pr-32">
       <Nav />
-        <div className="bg-Isabelline py-5 h-screen">
+        <div className="bg-Isabelline py-5 h-max">
           <div className="mb-8 text-center">
           <img
               className="grid justify-items-start bg-White rounded-full h-auto w-32 mx-auto mt-1"
@@ -28,7 +28,7 @@ const About = () => {
           <div className="text-center">
             <table className="grid gap-1 grid-cols-3 grid-rows-1">
               <div className="col-6 col-sm-4 col-md-3">
-                <h2 className="text-3xl">TicketMaster API</h2>
+                <h2 className="text-2xl">TicketMaster API</h2>
                 <p className="mt-2 italic text-xs">Showing you the best Events</p>
                 <img
                   className="border-double px-1 py-1 border-4 rounded-xl h-auto w-80 mx-auto mt-4"
@@ -37,7 +37,7 @@ const About = () => {
                 />
               </div>
               <div className="col-6 col-sm-4 col-md-3">
-                <h2 className="text-3xl">Current and Forecast Weather API</h2>
+                <h2 className="text-2xl">Current and Forecast Weather API</h2>
                 <p className="mt-2 italic text-xs">Presenting the future weather</p>
                 <img
                   className="border-double px-1 py-1 border-4 border rounded-xl h-auto w-80 mx-auto mt-4"
@@ -46,7 +46,7 @@ const About = () => {
                 />
               </div>
               <div className="col-6 col-sm-4 col-md-3">
-                <h2 className="text-3xl">Quality of Life API</h2>
+                <h2 className="text-2xl">Quality of Life API</h2>
                 <p className="mt-2 italic text-xs">
                   Giving you all there is to know about your future destination
                 </p>
@@ -57,7 +57,7 @@ const About = () => {
                 />
               </div>
             </table>
-            <h2 className="mt-8 text-3xl">GeoNames API</h2>
+            <h2 className="mt-8 text-2xl">GeoNames API</h2>
             <p className="mt-2 italic text-xs">Search API powering the search bar</p>
             <img
               className="border-double px-1 py-1 border-4 border rounded-xl h-auto w-80 mx-auto mt-2"
@@ -68,7 +68,7 @@ const About = () => {
         </div>
         <div className="relative center h-32 w-60 mx-auto">
           <button
-            className="fixed bottom-3 mx-auto px-2 py-2 bg-Independence text-White rounded-xl"
+            className="fixed bottom-5 right-0 mx-auto px-2 py-2 bg-Independence text-White rounded-xl"
             onClick={() => navigate("/Contact")}
           >
             Check out our contact page
