@@ -14,8 +14,9 @@ const AddFavourite = (props) => {
     setDisplayName(cName);
     setCityName(cName);
     returnFavourites();
+    // eslint-disable-next-line
   }, [geonameId, cName]);
-  
+
   const favouritesFilter = (fav) => {
     const cityNameArr = [];
     fav.forEach((item) => {
