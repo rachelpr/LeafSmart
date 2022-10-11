@@ -3,7 +3,6 @@ import NumberFormat from "react-number-format";
 const CityFacts = (props) => {
   const { cityName, cityPop, imageData } = props;
 
-  console.log("imageData Keys: ", Object.keys(imageData).length);
   return (
     <section>
       { cityName && (

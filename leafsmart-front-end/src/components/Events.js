@@ -31,10 +31,9 @@ const Events = (props) => {
           setEvents(data);
           setNoEvents(false);
         })
-        .catch((err) => {
+        .catch(() => {
           setEvents([]);
           setNoEvents(true);
-          console.log(err);
         });
     }
   }, [cityName]);
