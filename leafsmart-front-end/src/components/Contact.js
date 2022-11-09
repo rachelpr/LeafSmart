@@ -17,7 +17,7 @@ const Contact = () => {
       photo: "/team-photos/andrea.jpg",
       email: "almadsen792@live.ca",
       githubLink: "https://github.com/b1u3too",
-      githubUsername: "b1uetoo",
+      githubUsername: "b1u3too",
     },
     {
       name: "Matt Stankovich",

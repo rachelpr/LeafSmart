@@ -28,7 +28,6 @@ const Weather = (props) => {
 
       Promise.all([forecastPromise, currentWeatherPromise])
         .then((res) => {
-          console.log(res);
           const forecastResponse = res[0];
           const forecastData = forecastResponse.data["data"];
           const currentWeatherResponse = res[1];

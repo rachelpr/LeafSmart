@@ -22,31 +22,47 @@ const CityData = (props) => {
       axios.get(`${cityUrl}geonameid:${geonameId}`)
       .then((res)=> {
         setCity(res.data);
+
+        // check Teleport api data against city's Country
+        axios.get(`${qolUrl}slug:${kebabCase(cityName)}/`)
+          .then((res) => {
+            const slugCountry = res.data._links["ua:countries"][0].name;
+            const currentCountry = city.full_name.split(",")[2].trim();
+
+            if (slugCountry === currentCountry) {
+              Promise.all(
+                [
+                  axios.get(`${qolUrl}slug:${kebabCase(cityName)}/scores/`),
+                  axios.get(`${qolUrl}slug:${kebabCase(cityName)}/images/`)
+                ]
+              )
+              .then((res) => {
+                const imageData = res[1].data.photos[0];
+
+                setSlugScores(res[0].data.categories);
+                setImage({...imageData.image, attribution: {...imageData.attribution}});
+              })
+              .catch((err) => {
+                console.log("Error getting city details: ", err);
+                setSlugScores([]);
+                setImage({});
+              });
+
+            } else {
+              //reset image and slugscores
+              setSlugScores([]);
+              setImage({});
+            }
+          })
+          .catch((err) => {
+            setSlugScores([]);
+            setImage({});
+            console.log("Error in Urban Areas: ", err);
+          });
       })
       .catch((err)=>{
         console.log("Error in City Facts endpoint: ", err);
       });
-
-      // get Teleport QoL detailed data
-      axios.get(`${qolUrl}slug:${kebabCase(cityName)}/scores/`)
-      .then((res) => {
-        setSlugScores(res.data.categories);
-      })
-      .catch(err => {
-        setSlugScores([]);
-        console.log("Error in QoL endpoint: ", err);
-      })
-
-      // get Teleport UrbanAreaImages resouce
-      axios.get(`${qolUrl}slug:${kebabCase(cityName)}/images/`)
-      .then((res) => {
-        const data = res.data.photos[0];
-        setImage({...data.image, attribution: {...data.attribution}});
-      })
-      .catch(err => {
-        setImage({});
-        console.log("Error in Image endpoint: ", err);
-      })
     }
   }, [geonameId, qolUrl, cityName, cityUrl]);
 
